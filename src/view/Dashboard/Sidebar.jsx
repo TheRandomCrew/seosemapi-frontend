@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Box, Button } from "grommet";
-const links = [{ label: "Dashboard API", path: '/home' }, { label: "Buscar", path: '/searches' }, { label: "Verificar", path: '/errores' }, { label: 'Documentacion', path: '/documentacion' }]
+import {links} from '../../router/router';
 
 function Sidebar({ sidebar, path }) {
+  console.log(path)
   return sidebar && (
     <Aside>
       {links.map((name, id) => (

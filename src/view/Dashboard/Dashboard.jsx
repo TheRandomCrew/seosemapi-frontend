@@ -1,8 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Box, Grid } from "grommet";
-import Docs from '../Docs/Docs';
-import { Search, Errors, Overview } from '../../data';
+import { Search, Overview } from '../../data';
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
@@ -17,8 +16,6 @@ const Dashboard = ({ email, path }) => {
 
         <Switch>
           <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
-          <Route path={`${path}/errores`} component={Errors} />
-          <Route path={`${path}/documentacion`} component={Docs} />
           <Route path={`${path}/searches`} component={Search} />
           <Route
             path={path + '/*'}
