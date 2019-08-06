@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+
 import { Box, Button } from "grommet";
-const links = [{ label: "Dashboard API", path: '/home' }, { label: "Buscar", path: '/searches' }, { label: "Verificar", path: '/errores' }, { label: 'Documentacion', path: '/documentacion' }]
+
+const links = [
+  { label: "Dashboard API", path: '/home' }, 
+  { label: "Buscar", path: '/searches' }, 
+  { label: "Verificar", path: '/errores' }, 
+  { label: 'Documentacion', path: '/documentacion' }
+]
 
 function Sidebar({ sidebar, path }) {
   return sidebar && (

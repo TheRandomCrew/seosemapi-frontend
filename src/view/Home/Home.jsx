@@ -28,8 +28,12 @@ const Home = () => (
                 Para tener acceso a todas nuestras caracteristicas, ingresa  o crea tu cuenta.
             </p>
 
-            <p>Visita nuestra Tienda: </p>
-            <a href='https://server.seosemapi.com/' >SEOSEMAPI Store</a>
+            <p>
+                Visita nuestra Tienda: 
+            </p>
+            <a href='https://server.seosemapi.com/' >
+                SEOSEMAPI Store
+            </a>
             {/* <Store /> */}
         </BodyHome>
         <FooterHome>

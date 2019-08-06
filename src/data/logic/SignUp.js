@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { SignUp as SignUpView } from '../../view';
+
+/** Import logic components */
 import { useFetch } from "../util/hooks";
 
+/** Import view components */
+import { SignUp as SignUpView } from '../../view';
+
 const SignUp = () => {
+    /** Hooks States */
     const [email, setEmail] = useState('');
     const [username, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('')
     const [layer, setLayer] = useState(false);
-
+    const [error, setError] = useState('')
 
     const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/user/create?email=${encodeURIComponent(email)}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&secret_key=${encodeURIComponent("OHLuUV~L0jci+=_qw`d=|b?lc`p?'b")}`);
-    const [error, setError] = useState('')
 
     const onLogIn = () => {
         if (!email) { return setError({ email: 'Email vacio' }) }
@@ -19,6 +23,7 @@ const SignUp = () => {
         if (!password) { return setError({ password: 'password vacio' }) }
         if (!passwordConfirm) { return setError({ passwordConfirm: 'Password de confirmacion vacio' }) }
         if (password !== passwordConfirm) { return setError({ passwordConfirm: 'Los password no coinciden' }) }
+        
         setStart(true)
     }
 

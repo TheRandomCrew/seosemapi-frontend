@@ -1,8 +1,10 @@
 import React from 'react'
-import { Box, Heading, Button, Layer,  Text } from 'grommet'
-import { FormCheckmark, Disc } from 'grommet-icons'
 import { Link } from 'react-router-dom'
 
+import { Box, Heading, Button, Layer,  Text } from 'grommet'
+import { FormCheckmark, Disc } from 'grommet-icons'
+
+/** Import view components */
 import InputForm from './InputForm'
 import SignUpWrapper from './SignUpWrapper';
 
@@ -53,6 +55,5 @@ const SignUp = ({
         />
     )
 }
-
 
 export default SignUp;

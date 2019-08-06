@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+
 export const dayTheme = {
 	bg: "white",
 	text: "black"

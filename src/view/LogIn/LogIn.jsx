@@ -6,6 +6,7 @@ import LogInWrapper from './LogInWrapper';
 
 const LogIn = ({ error = { server: null, email: null, password: null }, loading, setEmail, setPassword, onLogIn }) => {
   const [checked, setChecked] = React.useState(false);
+  
   const onConfirm = () => {
     onLogIn()
   }

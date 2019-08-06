@@ -1,20 +1,22 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Box, Grid } from "grommet";
-import Docs from '../Docs/Docs';
+
 import { Search, Errors, Overview } from '../../data';
+
+import { Box, Grid } from "grommet";
+
+import Docs from '../Docs/Docs';
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
 const Dashboard = ({ email, path }) => {
   const [sidebar, setSidebar] = React.useState(true);
-
+  /** This Dashboard contain a dashboard route */
   return (
     <Wrapper>
       <Header setSidebar={setSidebar} sidebar={sidebar} email={email} />
       <Sidebar sidebar={sidebar} path={path} />
       <Box gridArea="main" justify="center" align="center">
-
         <Switch>
           <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
           <Route path={`${path}/errores`} component={Errors} />

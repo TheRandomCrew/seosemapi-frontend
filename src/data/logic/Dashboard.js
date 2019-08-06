@@ -5,6 +5,7 @@ import { Dashboard as DahsboardView } from '../../view';
 
 const Dashboard = ({ match }) => {
     const { email } = tokenService.get().token;
+    /** If exist token show dashboar else redirect to signup */
     if (tokenService.get()) {
         return (
             (

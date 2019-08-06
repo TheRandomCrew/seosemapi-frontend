@@ -28,7 +28,7 @@ const ForgotWrapper = ({ ErrorMsg, InputEmail, ConfirmButton }) => {
             Ingresa tu email y te ayudaremos a recuperar tu Contraseña.
           </Text>
         </Box>
-        {ErrorMsg}
+          {ErrorMsg}
         <Box
           align="center"
           justify="center"

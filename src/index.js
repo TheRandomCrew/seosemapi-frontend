@@ -4,6 +4,7 @@ import Routes from './router/router';
 import * as serviceWorker from './serviceWorker';
 
 const App = () => {
+    /**add preloader animation when launching the app*/
     React.useEffect(() => {
         const preloader = document.getElementById('ipl-progress-indicator')
         if (preloader) {
@@ -15,8 +16,10 @@ const App = () => {
             }, 2000)
         }
     })
+    /** Submit app after the animation */
     return <Routes />
 }
-ReactDOM.render(<App id='Root' />, document.getElementById('⚛️'));
 
+/** Render Method for App*/ 
+ReactDOM.render(<App id='Root' />, document.getElementById('⚛️'));
 serviceWorker.register();

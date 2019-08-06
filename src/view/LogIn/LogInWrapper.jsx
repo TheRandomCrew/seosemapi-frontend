@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import { Box, Grid, Form, Heading, Text } from 'grommet';
 
 const LogInWrapper = ({ ErrorMsg, InputEmail, InputPassword, RememberPassword, ConfirmButton }) => {
-
-
   return (
     <Main>
       <Box

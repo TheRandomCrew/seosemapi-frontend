@@ -18,15 +18,12 @@ var date_sort_asc = function (item1, item2) {
     return 0;
 };
 
-const Overview = ({
-    email, tableData, loading
-}) => {
+const Overview = ({ email, tableData, loading }) => {
+    /** Hook state */
     const [chartData, setChartData] = React.useState([])
 
     var getDateArray = function (start, end) {
-
-        var
-            arr = {},
+        var arr = {},
             dt = new Date(start);
 
         while (dt <= end) {
@@ -36,7 +33,6 @@ const Overview = ({
         }
 
         return arr;
-
     }
 
     React.useLayoutEffect(() => {

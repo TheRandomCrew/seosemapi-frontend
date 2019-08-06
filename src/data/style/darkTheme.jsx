@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+
 const accentColors = ['#FD6FFF', '#60EB9F', '#60EBE1', '#FFCA58'];
 const neutralColors = ['#EB6060', '#01C781', '#6095EB', '#FFB200'];
 const statusColors = {
@@ -9,6 +10,7 @@ const statusColors = {
     unknown: '#a8a8a8',
     disabled: '#a8a8a8',
 };
+
 const backgroundColor = '#111111';
 
 const colors = {
