@@ -4,12 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { Search, Errors, Overview } from '../../data';
 
 import { Box, Grid } from "grommet";
-<<<<<<< HEAD
-
-import Docs from '../Docs/Docs';
-=======
 import { Search, Overview } from '../../data';
->>>>>>> d6edd701a5993fa6f204320ce35eebb470d04151
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 

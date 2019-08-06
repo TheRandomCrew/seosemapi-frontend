@@ -2,17 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import { Box, Button } from "grommet";
-<<<<<<< HEAD
-
-const links = [
-  { label: "Dashboard API", path: '/home' }, 
-  { label: "Buscar", path: '/searches' }, 
-  { label: "Verificar", path: '/errores' }, 
-  { label: 'Documentacion', path: '/documentacion' }
-]
-=======
 import {links} from '../../router/router';
->>>>>>> d6edd701a5993fa6f204320ce35eebb470d04151
 
 function Sidebar({ sidebar, path }) {
   console.log(path)
