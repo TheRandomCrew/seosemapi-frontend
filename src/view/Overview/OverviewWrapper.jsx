@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Grid, Text, Heading, Accordion, AccordionPanel } from "grommet";
+
 import { LineChart, LineSeries } from 'reaviz';
+import { Box, Grid, Text, Heading, Accordion, AccordionPanel } from "grommet";
 
 const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData, loading }) => {
     return (
@@ -62,4 +63,5 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
         </Box>
     )
 }
+
 export default OverviewWrapper;

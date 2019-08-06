@@ -10,6 +10,7 @@ var tomorrow = new Date();
 const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
+/** Function for compare dates */
 var date_sort_asc = function (item1, item2) {
     const date1 = item1.consultation_date;
     const date2 = item2.consultation_date;
@@ -18,10 +19,12 @@ var date_sort_asc = function (item1, item2) {
     return 0;
 };
 
+/** Hook Component Overview */
 const Overview = ({ email, tableData, loading }) => {
     /** Hook state */
     const [chartData, setChartData] = React.useState([])
 
+    //?
     var getDateArray = function (start, end) {
         var arr = {},
             dt = new Date(start);
@@ -35,20 +38,27 @@ const Overview = ({ email, tableData, loading }) => {
         return arr;
     }
 
+    /** If exist content of table we order it ascendingly */
     React.useLayoutEffect(() => {
         if (tableData.length > 0) {
+            
             tableData.sort(date_sort_asc);
+
             let correctDate = tableData.map(item => {
                 const date = item.consultation_date
                     .split(' ')[0]
                     .split('-')
                     .reverse()
                     .join('-');
+
                 item.consultation_date = new Date(date).toDateString();
                 return item;
             });
+            
             let filtered = {};
             let last = '';
+
+            //??
             correctDate.map((item) => {
                 if (filtered[item.consultation_date]) {
                     if (item.consultation_date === last) {
@@ -58,6 +68,7 @@ const Overview = ({ email, tableData, loading }) => {
                     filtered[item.consultation_date] = 1;
                     last = item.consultation_date;
                 }
+
                 return item
             })
 
@@ -71,7 +82,7 @@ const Overview = ({ email, tableData, loading }) => {
         }
     }, [tableData])
 
-console.log(tableData)
+    console.log(tableData)
     return (
         <OverviewWrapper
             PlanUse={<UtilizationCard data={{ name: 'Plan Developer', value: 250000, used: true, usedValue: 23123, available: true, availableValue: 250000 - 23123, percent: (23123 / 250000) * 100 }} />}
@@ -81,4 +92,5 @@ console.log(tableData)
         />
     )
 }
+
 export default Overview;

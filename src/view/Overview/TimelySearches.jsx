@@ -1,6 +1,8 @@
 import React from 'react';
-import { Box, Grid, Text, Button } from "grommet";
+
 import { useTimelySearches } from "../../data";
+
+import { Box, Grid, Text, Button } from "grommet";
 
 var byMonth = new Date(); // last month date
 const pastMonth = byMonth.getMonth() - 1;
@@ -14,9 +16,12 @@ var tomorrow = new Date();
 const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
+/** Hook Component */
 const TimelySearches = ({ isMonthly, email }) => {
+    /** Hook States from logic TimelySearches */
     const [{ total, loading, error }, { setStartDate, setEndDate, setTargetEmail, onSearch }] = useTimelySearches();
 
+    /** Init search for month or day */
     const checkSearches = () => {
         if (isMonthly) {
             setStartDate(byMonth);
@@ -27,6 +32,7 @@ const TimelySearches = ({ isMonthly, email }) => {
         setEndDate(tomorrow);
         onSearch(true);
     };
+
     return (
         <Box
             align="center"

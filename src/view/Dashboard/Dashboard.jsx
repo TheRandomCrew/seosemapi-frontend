@@ -1,12 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { Search, Errors, Overview } from '../../data';
-
-import { Box, Grid } from "grommet";
+/** Import logic components */
 import { Search, Overview } from '../../data';
+
+/** Import view components */
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+
+import { Box, Grid } from "grommet";
 
 const Dashboard = ({ email, path }) => {
   const [sidebar, setSidebar] = React.useState(true);

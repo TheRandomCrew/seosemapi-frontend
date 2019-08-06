@@ -9,16 +9,18 @@ var tomorrow = new Date();
 const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
+/** Hook Component */
 const useTimelySearches = () => {
+    /** Hook states */
     const [startDate, setStartDate] = useState(ourDate.toDateString());
     const [endDate, setEndDate] = useState(tomorrow.toDateString());
     const [targetEmail, setTargetEmail] = useState('');
     const [total, setTotal] = useState(null);
     const [error, setError] = useState('')
-    const [
-        data, { loading, setStart }
-    ] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&target_email=${encodeURIComponent(targetEmail)}&target_username=israellaguan&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&target_email=${encodeURIComponent(targetEmail)}&target_username=israellaguan&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+
+    //??
     const onSearch = () => {
         setStart(true)
     }

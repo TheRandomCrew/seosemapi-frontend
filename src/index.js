@@ -4,7 +4,7 @@ import Routes from './router/router';
 import * as serviceWorker from './serviceWorker';
 
 const App = () => {
-    /**add preloader animation when launching the app*/
+    /** Add preloader animation when launching the ap p*/
     React.useEffect(() => {
         const preloader = document.getElementById('ipl-progress-indicator')
         if (preloader) {

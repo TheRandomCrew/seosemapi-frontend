@@ -10,6 +10,7 @@ var tomorrow = new Date();
 const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
+/** Hook Component */
 const Overview = ({ email }) => {
     /** Hook State */
     const [tableData, setTableData] = React.useState([])
@@ -32,6 +33,7 @@ const Overview = ({ email }) => {
         };
     }, [data, setStart]);
 
+    /** If hook state email change init fetch */
     React.useEffect(() => {
         setStart(true)
         return () => {
