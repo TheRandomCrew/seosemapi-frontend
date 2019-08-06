@@ -1,53 +1,25 @@
 import React from 'react'
-import { Box, TextInput, DataTable, Select, CheckBox, Button } from 'grommet'
+import { Box, DataTable, Button } from 'grommet'
 import { Search, Grommet } from 'grommet-icons';
 import SearchWrapper from './SearchesWrapper';
 
 const Searchs = ({
     error,
+    from, to,
     tableData,
     loading,
     onSearch,
-    keyword, setKeyword,
-    localization, setLocalization,
-    organic, setOrganic,
-    paid, setPaid,
-    total, setTotal
+    setFrom,
+    setTo
 }) => {
 
     return (
         <SearchWrapper
-            KeywordInput={<TextInput
-                placeholder="Busca una palabras"
-                value={keyword}
-                onChange={({ target }) => setKeyword(target.value)}
-            />}
-            Localization={<Select
-                options={["ES,Spanish", "AR,Spanish"]}
-                searchPlaceholder="ES, Spanish"
-                placeholder="Busca tu Pais e Idioma"
-                value={localization}
-                onChange={({ option }) => setLocalization(option)}
-            />}
             ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
-            IsOrganic={<CheckBox
-                label="Organic"
-                checked={organic}
-                onChange={({ target }) => setOrganic(target.checked)}
-            />}
-            IsPaid={<CheckBox
-                label="Paid"
-                checked={paid}
-                onChange={({ target }) => setPaid(target.checked)}
-            />}
-            TotalResults={<TextInput
-                type='number'
-                min={4}
-                max={99}
-                placeholder="Resultados Totales (default 10)"
-                value={total}
-                onChange={({ target }) => setTotal(target.value)}
-            />}
+            from={from}
+            to={to}
+            setTo={setTo}
+            setFrom={setFrom}
             SearchButton={<Button
                 style={{ borderRadius: '0' }}
                 label={loading ? 'Buscando' : 'Buscar'}
@@ -65,7 +37,8 @@ const Searchs = ({
             />}
         >
             <DataTable
-                columns={[{ "header": "No.", "property": "result_position", "primary": true, "sortable": true, "align": "center" }, { "header": "Titulo", "property": "result_title", "search": true }, { "property": "result_snippet", "header": "Descripcion", "search": true }, { "property": "result_url", "header": "URL" }]}
+                resizeable={true} 
+                columns={[{"header":"Fecha de Consulta","property":"consultation_date","primary":true,"sortable":true},{"header":"Tipo de Busqueda","property":"query_type"},{"header":"Palabra Clave","property":"keyword","search":true},{"property":"query_id","header":"query_id"},{"property":"search_domain","header":"search_domain"},{"property":"country_code","header":"country_code"},{"property":"result_url","header":"result_url"}]}
                 data={tableData}
             />
         </SearchWrapper>

@@ -15,7 +15,7 @@ const Errors = () => {
     const [startDate, setStartDate] = useState(ourDate.toDateString());
     const [endDate, setEndDate] = useState(tomorrow.toDateString());
     const [targetEmail, setTargetEmail] = useState(tokenService.get().token.email);
-    const [tableData, setTableData] = React.useState([])
+    const [tableData, setTableData] = React.useState([]) 
     const [isQuery, setIsQuery] = React.useState(true)
     const [
         data, { loading, setStart }
