@@ -34,8 +34,8 @@ function Routes() {
 }
 
 export const links = [
-  { label: "Dashboard API", path: '/home' }, 
-  { label: "Buscar", path: '/searches' }
+  { label: "Dashboard API", path: '/inicio' }, 
+  { label: "Buscar", path: '/busquedas' }
 ];
 
 export default Routes

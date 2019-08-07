@@ -18,14 +18,7 @@ const Dashboard = ({ email, path }) => {
       <Header setSidebar={setSidebar} sidebar={sidebar} email={email} />
       <Sidebar sidebar={sidebar} path={path} />
       <Box gridArea="main" justify="center" align="center">
-        <Switch>
-          <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
-          <Route path={`${path}/searches`} component={Search} />
-          <Route
-            path={path + '/*'}
-            render={(props) => <Overview {...props} email={email} />}
-          />
-        </Switch>
+        <DashboardRouter email={email} path={path} />
       </Box>
     </Wrapper>
   )
@@ -33,18 +26,29 @@ const Dashboard = ({ email, path }) => {
 
 export default Dashboard;
 
-const Wrapper = ({children=undefined, ...rest}) => (
+const Wrapper = ({ children = undefined, ...rest }) => (
   <Grid
-      fill
-      rows={["auto", "flex"]}
-      columns={["auto", "flex"]}
-      areas={[
-        { name: "header", start: [0, 0], end: [1, 0] },
-        { name: "sidebar", start: [0, 1], end: [0, 1] },
-        { name: "main", start: [1, 1], end: [1, 1] }
-      ]}
-      {...rest}
-    >
-      {children}
-    </Grid>
+    fill
+    rows={["auto", "flex"]}
+    columns={["auto", "flex"]}
+    areas={[
+      { name: "header", start: [0, 0], end: [1, 0] },
+      { name: "sidebar", start: [0, 1], end: [0, 1] },
+      { name: "main", start: [1, 1], end: [1, 1] }
+    ]}
+    {...rest}
+  >
+    {children}
+  </Grid>
 );
+
+const DashboardRouter = ({ path, email }) => (
+  <Switch>
+    <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
+    <Route path={`${path}/busquedas`} component={Search} />
+    <Route
+      path={path + '/*'}
+      render={(props) => <Overview {...props} email={email} />}
+    />
+  </Switch>
+)

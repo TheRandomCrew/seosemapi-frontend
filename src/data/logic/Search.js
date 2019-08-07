@@ -38,7 +38,6 @@ const Search = () => {
                 }
             } else {
                 if (data.detail) {
-                    console.log('data:\n ', data)
                     setError({ server: data.detail.message });
                 }
             }
@@ -52,7 +51,7 @@ const Search = () => {
     }, [data, setStart]);
 
     React.useEffect(() => {
-        if (localStorage.hasOwnProperty('lscache-seosemapi')) {
+        if (localStorage.hasOwnProperty('seosemapi')) {
             const { email  } = tokenService.get().token;
             setEmail(email);
       }

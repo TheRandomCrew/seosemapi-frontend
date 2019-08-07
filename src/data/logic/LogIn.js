@@ -28,7 +28,7 @@ const LogIn = () => {
     React.useLayoutEffect(() => {
         /** Check if the user has already logged or if there was an error */
         if (data.length > 0 || data[1] === 200) {
-            tokenService.set({ email:localEmail, password:localPassword })
+            tokenService.set({ email:localEmail })
             setStart(false);
             history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
         } else {
@@ -42,7 +42,7 @@ const LogIn = () => {
 
     React.useEffect(() => {
         /** If the user is registered replace the browsing history to the user's dashborad */
-        if (localStorage.hasOwnProperty('lscache-seosemapi')) {
+        if (localStorage.hasOwnProperty('seosemapi')) {
             try {
                 history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
             } catch (e) {

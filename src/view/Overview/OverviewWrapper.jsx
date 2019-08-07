@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LineChart, LineSeries } from 'reaviz';
+import { LineChart, LineSeries, PointSeries } from 'reaviz';
 import { Box, Grid, Text, Heading, Accordion, AccordionPanel } from "grommet";
 
 const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData, loading }) => {
@@ -46,7 +46,7 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
             <Box align="center" justify="center" pad="small" direction="row-responsive" fill="horizontal" background={{ "color": "light-1" }}>
                 {CheckDayly}
             </Box>
-            <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall">
+            <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall" >
                 <Box align="start" justify="start" pad="small" fill="horizontal" direction="row-responsive" border={{ "side": "all" }}>
                     <Text weight="bold">
                         Búsquedas Mensuales:
@@ -57,7 +57,7 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
                 {loading && 'Loading...'}
                 <LineChart
                     data={chartsData}
-                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']}/>}
+                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />}/>}
                 />
             </Box>
         </Box>

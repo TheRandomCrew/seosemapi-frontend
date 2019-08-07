@@ -5,7 +5,6 @@ import { Box, Button } from "grommet";
 import {links} from '../../router/router';
 
 function Sidebar({ sidebar, path }) {
-  console.log(path)
   return sidebar && (
     <Aside>
       {links.map((name, id) => (

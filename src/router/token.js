@@ -1,16 +1,11 @@
-import lscache from 'lscache'
+import SecureLS from 'secure-ls'
+var ls = new SecureLS();
 
-// enable warnings
-if (process.env.NODE_ENV !== 'production') {
-  lscache.enableWarnings(true)
-}
-
-/** For "cachear" data */
-const tokenKey = 'seosemapi'
+/** For "caching" data */
 const tokenService = {
-  set: token => lscache.set(tokenKey, { token },600),
-  get: () => lscache.get(tokenKey),
-  delete: () => lscache.flush()
+  set: token => ls.set('seosemapi', { token }),
+  get: () => ls.get('seosemapi'),
+  delete: () => ls.removeAll()
 }
 
 export default tokenService
