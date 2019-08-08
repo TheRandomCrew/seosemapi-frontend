@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './router/router';
 import * as serviceWorker from './serviceWorker';
+/** Global Grid-Styles */
+import './grid-styles.css';
 
 const App = () => {
     /** Add preloader animation when launching the ap p*/
