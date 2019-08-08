@@ -33,7 +33,6 @@ const LogIn = () => {
             history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
         } else {
             if (data.detail) {
-                console.log('data:\n ', data)
                 setError({ server: data.detail.message });
             }
         };
@@ -44,7 +43,8 @@ const LogIn = () => {
         /** If the user is registered replace the browsing history to the user's dashborad */
         if (localStorage.hasOwnProperty('seosemapi')) {
             try {
-                history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
+                const {email}= tokenService.get()
+                history.replace(`/dashboard/${encodeURIComponent(email.split('@')[0])}`)
             } catch (e) {
                 console.error(e)
             }
