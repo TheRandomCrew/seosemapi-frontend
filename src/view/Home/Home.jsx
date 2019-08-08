@@ -1,76 +1,86 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { Box, Grid, Text } from 'grommet';
-import { Login } from 'grommet-icons';
-import Cards from './Cards'
+
+import Card from './Card'
+import logo from './logo.jpg';
+import './styles.css'
 
 const Home = () => (
-    <Grid fill rows={["auto", "flex", 'auto']} id='Home'>
-        <NavHome>
-            <Text size="large">SEOSEMAPI LOGO</Text>
+    <Fragment>
+        <nav className="seo-navbar seo-blue-b">
+            <ul>
+                <li><img src="/favicon.ico" alt="" /></li>
+                <li><Link to="/entra"><i class="fa fa-sign-in"></i><span>Ingresar</span></Link></li>
+            </ul>
+        </nav>
+        
+        <div className="container-fluid">
+            <h1>Bienvenido a Seosemapi</h1>
+            <div className="seo-container-logo">
+                <img src={logo} alt="delson"/>
+            </div>
+            <div className="seo-box-description">
+                <p>Somos la <strong style={{color: '#3b5998', fontWeight:700}}>Mejor Alternativa</strong> para estructurar tu contenido con palabras clave y de la manera más fácil llevar <strong style={{color: '#3b5998', fontWeight:700}}>SEO</strong> de tu sitio web a <strong style={{color: '#3b5998', fontWeight:700}}>Otro nivel.</strong></p>
+            </div>
+        </div>
+        
+        <div className="seo-cards-container seo-alternative-b ">
+            
+                <Card {...cardInfo._1}/>
+                <Card {...cardInfo._2}/>
+                <Card {...cardInfo._3}/>    
+            
+        </div>
+        
 
-            <Grid columns={['auto', 'flex']}>
-                <Login /> <Link to='./entra'>Ingresa</Link>
+        <div className="px-5">
+            <div className="container-fluid ">
+                <div className="seo-card seo-card-tb my-5" style={{backgroundImage: `url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)`}}>
+                    <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                        <div className="text-left">
+                            <h4 style={{color:'white'}}><i className="fa fa-chart-pie"></i>Marketing</h4>
+                            <h3 className="seo-title-tb"><strong>El SEO también es Marketing</strong></h3>
+                            <p className="seo-text-tb">Deja que tus clienteste encuentren al aparecer de primero en los buscadores más famosas del mundo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            </Grid>
-        </NavHome>
+        <footer className="seo-footer">
+            Seosemapi Footer @2019 Todos los derechos reservados
+        </footer>
+    </Fragment>
+);
 
-        <BodyHome>
-            <h1>
-                Somos SEOSEMAPI
-            </h1>
-
-            <p>
-                Es la Mejor Alternativa para el Planificador de Palabras Claves de Googgle y Otras Herramientas de Palabra Claves.
-            </p>
-            <Cards />
-            <p>
-                Para tener acceso a todas nuestras caracteristicas, ingresa  o crea tu cuenta.
-            </p>
-
-            <p>
-                Visita nuestra Tienda: 
-            </p>
-            <a href='https://server.seosemapi.com/' >
-                SEOSEMAPI Store
-            </a>
-            {/* <Store /> */}
-        </BodyHome>
-        <FooterHome>
-            <Text weight="bold" size="large" color='violet'>
-                SEOSEMAPI
-            </Text>
-        </FooterHome>
-    </Grid>
-)
+const cardInfo = {
+    _1:{
+        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
+        about:`Metricas`,
+        icon:`fa-bar-chart`,
+        iconColor:`#efd5c8`,
+        iconAnimation:``,
+        title:`Midelo todo`,
+        description:`Descubre cuanto crece tu web, obten herramientas que te haran crecer observando cada detalle`
+    },
+    _2:{
+        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
+        about:`Diseño`,
+        icon:`fa-heart`,
+        iconColor:`#c12d2d`,
+        iconAnimation:`pulse`,
+        title:`Pensado para ti`,
+        description:`Ofrecemos un diseño sencillo y poderoso para que puedas aprovechar al máximo y de la forma más sencilla`
+    },
+    _3: {
+        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
+        about:`Seguridad`,
+        icon:`fa-shield`,
+        iconColor:`#3b5998`,
+        iconAnimation:``,
+        title:`Primero lo primero`,
+        description:`Antes que nada pensamos en la privacidad de tus datos y en la seguridad de quienes confian en nosotros`
+    }
+}
 
 export default Home;
-
-const NavHome = ({ children = undefined }) => (
-    <Box
-        tag='nav'
-        direction="row"
-        align="center"
-        justify="between"
-        pad={{ horizontal: "medium", vertical: "small" }}
-        background="brand"
-    >
-        {children}
-    </Box>
-);
-
-const BodyHome = ({ children = undefined }) => (
-    <Box direction="row" justify="center" tag='main'>
-        <Box overflow="auto" width="large">
-            <Grid fill>
-                {children}
-            </Grid>
-        </Box>
-    </Box>
-);
-
-const FooterHome = ({ children = undefined }) => (
-    <Box tag="footer" pad="0" margin='0' background="dark-1" fill>
-        {children}
-    </Box>
-);
