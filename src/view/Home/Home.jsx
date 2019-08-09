@@ -10,7 +10,7 @@ const Home = () => (
         <nav className="seo-navbar seo-blue-b">
             <ul>
                 <li><img src="/favicon.ico" alt="" /></li>
-                <li><Link to="/entra"><i class="fa fa-sign-in"></i><span>Ingresar</span></Link></li>
+                <li><Link to="/entra"><i className="fa fa-sign-in"></i><span>Ingresar</span></Link></li>
             </ul>
         </nav>
         
@@ -35,7 +35,7 @@ const Home = () => (
 
         <div className="px-5">
             <div className="container-fluid ">
-                <div className="seo-card seo-card-tb my-5" style={{backgroundImage: `url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)`}}>
+                <div className="seo-card seo-card-tb my-5" >
                     <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                         <div className="text-left">
                             <h4 style={{color:'white'}}><i className="fa fa-chart-pie"></i>Marketing</h4>
@@ -55,7 +55,6 @@ const Home = () => (
 
 const cardInfo = {
     _1:{
-        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
         about:`Metricas`,
         icon:`fa-bar-chart`,
         iconColor:`#efd5c8`,
@@ -64,7 +63,6 @@ const cardInfo = {
         description:`Descubre cuanto crece tu web, obten herramientas que te haran crecer observando cada detalle`
     },
     _2:{
-        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
         about:`Diseño`,
         icon:`fa-heart`,
         iconColor:`#c12d2d`,
@@ -73,7 +71,6 @@ const cardInfo = {
         description:`Ofrecemos un diseño sencillo y poderoso para que puedas aprovechar al máximo y de la forma más sencilla`
     },
     _3: {
-        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
         about:`Seguridad`,
         icon:`fa-shield`,
         iconColor:`#3b5998`,
