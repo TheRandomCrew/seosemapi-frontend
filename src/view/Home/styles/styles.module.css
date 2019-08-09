@@ -1,0 +1,112 @@
+/** ---------------------**/
+/** -----Navbar Home-----**/
+/** ---------------------**/
+
+.navbar {
+    font-size: 18px;
+    position: relative;
+    padding: 0.01rem 1.5rem;
+}  
+
+.navbar ul{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar ul li a{
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+.navbar ul li i{
+    color: #f8f8f8;
+    font-size: 1.1em;
+    margin-right: .5em;
+}
+
+.navbar ul li img{
+    position:relative;
+    top:-8px;
+}
+
+.navbar ul li a:hover{
+    color:white;
+}
+
+/** -------------------**/
+/** ----- SectionH-----**/
+/** -------------------**/
+
+.contLogo{margin: 4em 0;}
+
+.contLogo img{
+    display: inline-block;
+    width: 5.5em;
+    height: auto;
+}
+
+.contDescription{
+    margin: 4em 5.5em;
+    padding: 1.5em;
+    border-radius: 2em;
+}
+
+@media screen and (max-width: 1200px){
+    .contDescription{
+        font-size: 1em !important;
+        margin: 4em 4.5em;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .contDescription{
+        font-size: .95em !important;
+        margin: 4em 3.5em;
+    }
+}
+@media screen and (max-width: 576px){
+    .contDescription{
+        margin: 3em 2em;
+    }
+}
+
+/** ---------------------------**/
+/** -------Card Container------**/
+/** ---------------------------**/
+.cards-container{
+    display:flex;
+    display: -ms-flexbox;
+}
+
+/** -------------------**/
+/** ----- SectionF-----**/
+/** -------------------**/
+.contSectionF{
+    border-radius: 1.5em;
+    margin: .5em 2em;
+}
+
+
+/** -------------------**/
+/** -------Footer------**/
+/** -------------------**/
+
+.footer{
+    background-color: #171616e0;
+    color:white;
+
+    text-align: center;
+    font-size: .8em;
+
+    position: relative;
+    width: 100%;
+    padding: .5em;
+}
+

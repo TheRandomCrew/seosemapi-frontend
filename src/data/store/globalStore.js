@@ -4,15 +4,15 @@ import {
   GlobalActionsProvider
 } from './globalContext';
 
-import { Grommet, grommet } from 'grommet';
-import { dark } from '../style/darkTheme'
-import { hp } from '../style/hp';
+// import { Grommet, grommet } from 'grommet';
+// import { dark } from '../style/darkTheme'
+// import { hp } from '../style/hp';
 
 const initialState = {
   theme: 0
 };
 
-const themes = [grommet, dark, hp]
+// const themes = [grommet, dark, hp]
 
 const GlobalStore = ({ children = undefined }) => {
   const [state, dispatch] = React.useReducer(Reducer, initialState);
@@ -24,9 +24,9 @@ const GlobalStore = ({ children = undefined }) => {
       <GlobalActionsProvider
         value={dispatch}
       >
-        <Grommet theme={themes[state.theme]} full className='ThemeProvider'>
+        {/* <Grommet theme={themes[state.theme]} full className='ThemeProvider'> */}
           {children}
-        </Grommet>
+        {/* </Grommet> */}
       </GlobalActionsProvider>
     </GlobalStateProvider>
   )

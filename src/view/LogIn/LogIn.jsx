@@ -8,31 +8,39 @@ const LogIn = ({ error = { server: null, email: null, password: null }, loading,
     const { target: { value, name } } = e;
     if(name === 'email') setEmail(value);
     else if(name === 'password') setPassword(value)
-  }
-
+  }  
   return (
-    <div className="seo-alternative-b">
-      <div className="continer-fluid ">
-        <h1>Entra a SEOSEMAPI!</h1>
-        <p>Para entrar a SEOSEMAPI ingresa tus credenciales:</p>
+    <form class="login-form">
+      <div className="txtb">
+        <input name="email" type='email' onChange={onChange} error={error.email} />
+        <span data-placeholder="email"></span>
       </div>
-      {error.server && <p style={{ color: 'red' }}>{error.server}</p>}
-      <main className="container-fluid seo-form seo-black-b">
-        <form>
-          <input name="email" type='email' onChange={onChange} error={error.email} />
-          <input name="password" type='password' onChange={onChange} error={error.password} />
-        </form>
-      </main>
 
-      Si aun no tienes cuenta entra acá:
+      <div className="txtb">
+        <input name="password" type='password' onChange={onChange} error={error.password} />
+        <span data-placeholder="password"></span>
+      </div>
 
-      <Link to="/inscribete" style={{color:'white'}}>Regístrate</Link>
-      <button onClick={() => onLogIn()}>
-        Tu siempre
-      </button>
-      <Link to="/recuperar" style={{color:'white'}}>Olvidaste tu Contraseña?</Link>
-    </div>
+      <input type="submit" className="logbtn" value="Ingresar" />
+
+      <div className="bottom-text">
+        Don't have account ? <Link to="./inscribete">Registrate</Link>
+      </div>
+    </form>  
   )
 }
+
+// const HeaderLogin = ({ error = { server: null, email: null, password: null }})=>{
+//   <div className="seo-alternative-b">
+//       <div className="continer-fluid ">
+//         <h1>Entra a SEOSEMAPI!</h1>
+//         <p>Para entrar a SEOSEMAPI ingresa tus credenciales:</p>
+//       </div>
+//       {error.server && <p style={{ color: 'red' }}>{error.server}</p>}
+
+//       <button onClick={() => onLogIn()}></button>
+//       <Link to="/recuperar" style={{color:'white'}}>Olvidaste tu Contraseña?</Link>
+//     </div>
+// };
 
 export default LogIn;

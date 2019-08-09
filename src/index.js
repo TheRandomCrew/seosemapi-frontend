@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Routes from './router/router';
 import * as serviceWorker from './serviceWorker';
 /** Global Grid-Styles */
+import './global.css'
 import './grid-styles.css';
 
 const App = () => {

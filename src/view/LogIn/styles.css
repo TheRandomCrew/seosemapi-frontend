@@ -1,8 +1,15 @@
-.seo-black-b{
-    background-color:black;
-}
-
 .seo-form{
     width: 20em;
     height: auto;
+}
+
+input:-internal-autofill-selected {
+    background-color: rgb(255, 255, 255) !important;
+}
+.login-form{
+    
+    width:20em;
+    height: 40em;
+    background-color: #f1f1f1;
+    padding: 10em 5em;
 }
