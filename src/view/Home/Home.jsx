@@ -10,7 +10,7 @@ const Home = () => (
         <nav className="seo-navbar seo-blue-b">
             <ul>
                 <li><img src="/favicon.ico" alt="" /></li>
-                <li><Link to="/entra"><i class="fa fa-sign-in"></i><span>Ingresar</span></Link></li>
+                <li><Link to="/entra"><i className="fa fa-sign-in"></i><span>Ingresar</span></Link></li>
             </ul>
         </nav>
         
@@ -55,7 +55,7 @@ const Home = () => (
 
 const cardInfo = {
     _1:{
-        url:`https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg`,
+        url:`https://www.b2bnn.com/wp-content/uploads/2015/11/Metrics.jpg`,
         about:`Metricas`,
         icon:`fa-bar-chart`,
         iconColor:`#efd5c8`,
