@@ -1,44 +1,38 @@
-import React from 'react'
-import { Box, Button, CheckBox } from 'grommet'
-import { Login, Cycle } from 'grommet-icons'
-import InputForm from './InputForm'
-import LogInWrapper from './LogInWrapper';
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import './styles.css'
 
 const LogIn = ({ error = { server: null, email: null, password: null }, loading, setEmail, setPassword, onLogIn }) => {
-  const [checked, setChecked] = React.useState(false);
-  
-  const onConfirm = () => {
-    onLogIn()
+  const onChange = (e) => {
+    const { target: { value, name } } = e;
+    if(name === 'email') setEmail(value);
+    else if(name === 'password') setPassword(value)
   }
 
   return (
-    <LogInWrapper
-      ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
-      InputEmail={<InputForm type='email' getValue={setEmail} error={error.email} />}
-      InputPassword={<InputForm type='password' getValue={setPassword} error={error.password} checked={checked}/>}
-      RememberPassword={<CheckBox
-        toggle
-        checked={checked}
-        label="Recordar contraseña?"
-        onChange={(event) => setChecked(event.target.checked)}
-      />}
-      ConfirmButton={<Button
-        style={{ borderRadius: '0' }}
-        fill
-        label={loading ? 'Cargando' : 'Confirmar'}
-        color="status-ok"
-        primary={true}
-        reverse={loading}
-        hoverIndicator={{ background: 'status-ok' }}
-        icon={loading ? <Box animation={{
-          "type": "jiggle",
-          "delay": 100,
-          "duration": 1000,
-          "size": "large"
-        }} ><Cycle /></Box> : <Login />}
-        onClick={() => onConfirm()}
-      />}
-    />
+    <div className="seo-alternative-b">
+      <div className="continer-fluid ">
+        <h1>Entra a SEOSEMAPI!</h1>
+        <p>Para entrar a SEOSEMAPI ingresa tus credenciales:</p>
+      </div>
+      {error.server && <p style={{ color: 'red' }}>{error.server}</p>}
+      <main className="container-fluid seo-form seo-black-b">
+        <form>
+          <input name="email" type='email' onChange={onChange} error={error.email} />
+          <input name="password" type='password' onChange={onChange} error={error.password} />
+        </form>
+      </main>
+
+      Si aun no tienes cuenta entra acá:
+
+      <Link to="/inscribete" style={{color:'white'}}>Regístrate</Link>
+      <button onClick={() => onLogIn()}>
+        Tu siempre
+      </button>
+      <Link to="/recuperar" style={{color:'white'}}>Olvidaste tu Contraseña?</Link>
+    </div>
   )
 }
+
 export default LogIn;

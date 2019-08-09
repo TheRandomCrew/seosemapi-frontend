@@ -34,7 +34,7 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif,Lato, "Lucida Grande", Tahoma;
+      font-family: 'Roboto', sans-serif, Lato, "Lucida Grande", Tahoma;
       font-size: 13px;
       -webkit-font-smoothing: antialiased;
     }
@@ -205,7 +205,10 @@
     }
   </style>
   <script>
-
+    function cleanCache() {
+      console.log('Cache cleaned');
+      localStorage.clear();
+    }
   </script>
 </head>
 
@@ -216,7 +219,7 @@
       <div class="first-indicator"></div>
       <div class="second-indicator"></div>
     </div>
-    <button onclick="localStorage.clear();">Clean Cache</button>
+    <button onclick="cleanCache()">Clean Cache</button>
     <div class="insp-logo-frame">
       <div width="112" class="insp-logo-frame-img" height="112">
         <div class="lds-css ng-scope">
@@ -325,4 +328,5 @@
   </div>
   <div id="⚛️">Loading...</div>
 </body>
+
 </html>

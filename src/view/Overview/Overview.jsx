@@ -2,6 +2,7 @@ import React from 'react';
 import { UtilizationCard } from '../Dashboard/UtilizationCard'
 import OverviewWrapper from './OverviewWrapper';
 import getDatesArray from './getDatesArray';
+import TimelySearches from './TimelySearches';
 
 const Overview = ({
     email, tableData, loading
@@ -19,6 +20,8 @@ const Overview = ({
         <OverviewWrapper
             PlanUse={<UtilizationCard data={{ name: 'Plan Developer', value: 250000, used: true, usedValue: 23123, available: true, availableValue: 250000 - 23123, percent: (23123 / 250000) * 100 }} />}
             email={email}
+            CheckMonthly={<TimelySearches email={email} isMonthly />}
+            CheckDayly={<TimelySearches email={email} />}
             chartsData={chartData}
             loading={loading}
         />
