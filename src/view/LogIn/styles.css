@@ -1,15 +1,157 @@
-.seo-form{
-    width: 20em;
-    height: auto;
+/*---------------------*/
+/*----- Background ----*/
+/*---------------------*/
+.login-background{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(
+      rgba(59, 89, 112, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url('./bg.jpg');
+    background-size: cover;
 }
 
-input:-internal-autofill-selected {
-    background-color: rgb(255, 255, 255) !important;
+.tete{
+    display: inline
 }
+/*-----------------*/
+/*----- Header ----*/
+/*-----------------*/
+.contHeader {
+    margin-top:10%;
+    color:white;
+}
+
+/*-----------------*/
+/*----- Login -----*/
+/*-----------------*/
 .login-form{
-    
-    width:20em;
-    height: 40em;
+    width:15em;
+    height: 16em;
     background-color: #f1f1f1;
-    padding: 10em 5em;
+    padding: 1.5em 1.5em;
+    border-radius: 1em;
+    
+    position: absolute;
+    top:35%;
+    z-index:3;
+
+    animation: login-Down 2s forwards;
 }
+
+.login-form h1
+{
+    text-align: center;
+    margin-bottom: .5em;
+    font-size: 1em;
+}
+
+.login-form p,
+.login-form span,
+input[type="submit"]{
+    font-size: .6em;
+}
+
+.txtb{
+    border-bottom: 2px solid #adadad;
+    position: relative;
+    margin: 1em 0;
+}
+
+.txtb input{
+    color: #333;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: none;
+    padding: 0 5px;
+    height: 2em;
+}
+
+.txtb span::before{
+    content: attr(data-placeholder);
+    position:absolute;
+    color: #adadad;
+    top: 27%;
+    left: 0;
+    transform: translate(0%,20%);
+    z-index: -1;
+    transition: .5s;
+}
+
+.txtb span::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    transform: translate(-100%,0%);
+    top: 100%;
+    background-image: linear-gradient(120deg, #3498fb, #3b5998);
+    transition: .5s;
+}
+
+.focus + span::before{
+    top:-5px;
+}
+
+.focus + span::after{
+    width: 100%;
+}
+
+.logbtn{
+    display: block;
+    margin:2em 0; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 1.5em;
+    transition: .5s;
+    background-size: 200%;
+    background-image: linear-gradient(120deg, #3498fb, #3b5998, #3498fb);
+}
+
+.logbtn:hover{
+    color: #f8f8f8;
+    background-position: right;
+}
+
+.bottom-text{
+    margin-top: 2em;
+    text-align: center;
+    font-size: .5em;
+}
+
+.bottom-text a{
+    color:#3b5998;
+    text-decoration: none;
+}
+
+/*-----------------*/
+/*----- Header ----*/
+/*-----------------*/
+
+.SEO-text-pulse{
+    animation-name: animation-pulse;
+    -webkit-animation-name: animation-pulse;	
+
+    animation-duration: 5s;	
+    -webkit-animation-duration: 5s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes login-Down{
+    0%{
+        transform: translateY(3000px)
+    }
+    80%{
+        transform: translateY(-10px)
+    }
+    100%{
+        transform: translateY(0px)
+    }
+}
+

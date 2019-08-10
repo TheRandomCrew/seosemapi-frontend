@@ -8,7 +8,7 @@ import SEO from './styles/styles.module.css'
 const Home = () => (
     <Fragment>
         <Navbar />
-        
+
         <main className="container-fluid">
             <SectionH />
 
@@ -18,11 +18,11 @@ const Home = () => (
                 <Card {...cardInfo._3} />
             </section>
 
-            <SectionF />    
+            <SectionF className={`row ${SEO.contSectionF}`} />    
         </main>
 
         <footer className={SEO.footer}>
-            Seosemapi Footer @2019 Todos los derechos reservados
+            Seosemapi C.A. @2019 Todos los derechos reservados
         </footer>
     </Fragment>
 );
@@ -80,13 +80,13 @@ const SectionH = () => (
 )
 
 const SectionF = () => (
-    <div className={`p-5 SEO-white-b ${SEO.contSectionF}`}>
+    <div className={`p-5`}>
         <div className="container-fluid ">
             <div className="SEO-card SEO-card-tb my-5" >
                 <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                     <div className="text-left">
                         <h4 style={{ color: 'white' }}><i className="fa fa-chart-pie"></i>Marketing</h4>
-                        <h3 className="SEO-title-tb"><strong>El SEO también es Marketing</strong></h3>
+                        <h3 className="SEO-title-tb"><strong>El SEO también es <span style={{ color: '#3b5998', fontWeight: 700 }} >Marketing</span></strong></h3>
                         <p className="SEO-text-tb">Deja que tus clienteste encuentren al aparecer de primero en los buscadores más famosas del mundo</p>
                     </div>
                 </div>

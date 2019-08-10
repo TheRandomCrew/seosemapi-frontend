@@ -89,8 +89,8 @@
 /** ----- SectionF-----**/
 /** -------------------**/
 .contSectionF{
-    border-radius: 1.5em;
-    margin: .5em 2em;
+    width: 100%;
+    /*background-image: linear-gradient(-181deg,#fff,#3b59980f);*/
 }
 
 
