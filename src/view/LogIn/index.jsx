@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles.css'
+import SEO from './styles.module.css'
 
 const LogIn = ({ error = { server: null, email: null, password: null }, loading, setEmail, setPassword, onLogIn }) => {
   const [emailF, setEmailF] = useState(false)
@@ -14,39 +14,36 @@ const LogIn = ({ error = { server: null, email: null, password: null }, loading,
   }
 
   return (
-    <main className={`SEO-blue-b login-background`}>
+    <main className={`SEO-blue-b ${SEO.background}`}>
       <div className="container">
-        <div className="row tete justify-content-center">
-
+        <div className="row justify-content-center">
           
           <HeaderLogin className="p-5"/>
 
-            <form className="p-sm-3 p-md-5 align-items-center login-form ">
+            <form onSubmit={e=>e.preventDefault()} className={`p-sm-3 p-md-5 align-items-center ${SEO.lForm}`}>
               <h1>Ingresar</h1>
-              <div className="txtb">
-                <input name="email" className={emailF ? `focus` : ``} type='email' error={error.email}
+              <div className={SEO.textLabel}>
+                <input name="email" className={emailF ? `${SEO.focus}` : ``} type='email' error={error.email}
                   onBlur={({ target }) => target.value === '' ? setEmailF(false) : null}
                   onFocus={() => setEmailF(true)}
                   onChange={onChange}
                 />
                 <span className={`labelHolder`} data-placeholder="Correo"></span>
               </div>
-              <div className="txtb">
-                <input name="password" className={passwordF ? `focus` : ``} type='password' error={error.password}
+              <div className={SEO.textLabel}>
+                <input name="password" className={passwordF ? `${SEO.focus}` : ``} type='password' error={error.password}
                   onBlur={({ target }) => target.value === '' ? setPasswordF(false) : null}
                   onFocus={() => setPasswordF(true)}
                   onChange={onChange}
                 />
                 <span data-placeholder="Contraseña"></span>
               </div>
-              <input type="submit" className="logbtn" value="Ingresar" onClick={() => onLogIn()} />
+              <input type="submit" className={SEO.btnSubmit} value="Ingresar" onClick={() =>{console.log("Hola mama"); onLogIn()}} />
               {error.server && <p style={{ color: 'red' }}>{error.server}</p>}
-              <div className="bottom-text">
-                No tienes una cuenta ? <Link to="./inscribete">Registrate</Link>
+              <div className={SEO.linkTo}>
+                ¿ No tienes una cuenta ? <Link to="./inscribete">Registrate</Link>
                 <br /><br />
-                Olvidaste tu Contraseña? <Link to="/recuperar" >Recuperala</Link>
-              </div>
-              <div className="bottom-text">
+                ¿ Olvidaste tu contraseña ? <Link to="/recuperar" >Recuperala</Link>
               </div>
             </form>
           
@@ -58,8 +55,8 @@ const LogIn = ({ error = { server: null, email: null, password: null }, loading,
 }
 
 const HeaderLogin = () => (
-  <div className="contHeader">
-    <h1 className="SEO-text-pulse">Entra a <span style={{ color: '#FFD063' }}>Seosemapi</span><span style={{ color: '#3b5998' }}>!</span></h1>
+  <div className={SEO.contHeader}>
+    <h1 className={SEO.textPulse}>Entra a <span style={{ color: '#FFD063' }}>Seosemapi</span><span style={{ color: '#3b5998' }}>!</span></h1>
     <p className="SEO-text-center">Ingresa tus credenciales:</p>
   </div>
 );
