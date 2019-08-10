@@ -1,4 +1,4 @@
-export {default as SignUp} from './SignUp/SignUp'
+export {default as SignUp} from './SignUp'
 export {default as LogIn} from './LogIn'
 export {default as Home} from './Home/Home'
 export {default as Overview} from './Overview/Overview';

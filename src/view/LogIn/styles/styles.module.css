@@ -20,6 +20,23 @@
 }
 
 /*-----------------*/
+/*----- Errors ----*/
+/*-----------------*/
+.error{
+    max-height: 0.5em;
+    min-width: 100%;
+    position: absolute;
+    top: 0em;
+    padding:.5em;
+    color:white;
+    background:var(--danger);
+}
+
+.error small{
+    font-size: .5em;
+}
+
+/*-----------------*/
 /*----- Login -----*/
 /*-----------------*/
 .lForm{
@@ -146,7 +163,7 @@ input[type="submit"]{
         transform: translateY(3000px)
     }
     80%{
-        transform: translateY(-10px)
+        transform: translateY(-7px)
     }
     100%{
         transform: translateY(0px)

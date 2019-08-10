@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Box, Button } from 'grommet'
 import { Cycle, Alert } from 'grommet-icons'
+
 import InputForm from './InputForm'
 import ForgotWrapper from './ForgotWrapper';
 
@@ -9,7 +11,6 @@ const Forgot = ({ error = { server: null, email: null }, loading }) => {
   const onConfirm = () => {
     console.log('Well Done',email)
   }
-
   return (
     <ForgotWrapper
       ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
@@ -33,4 +34,5 @@ const Forgot = ({ error = { server: null, email: null }, loading }) => {
     />
   )
 }
+
 export default Forgot;

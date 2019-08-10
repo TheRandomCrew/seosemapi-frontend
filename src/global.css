@@ -1,24 +1,33 @@
+:root{
+  --black:#212121;
+  --white:#f8f8f8;
+  --blue:#3b5998;
+  --alternative:#FFD063;
+  --alternativeL:#ffecc280;
+  --danger:#ff4444;
+}
+
 /* ---------------- */
 /* -----Colors----- */
 /* ---------------- */
 .SEO-black-b{
-    background-color:#212121;
+    background-color:var(--black);
 }
 
 .SEO-white-b{
-    background-color:#f8f8f8;
+    background-color:var(--white);
 }
 
 .SEO-blue-b{
-    background-color: #3b5998;
+    background-color: var(--blue);
 }
 
 .SEO-alternative-b{
-    background-color: #FFD063;
+    background-color:var(--alternative) ;
 }
   
 .SEO-alternative-light-b{
-    background-color: #ffecc280;
+    background-color:var(--alternativeL) ;
 }
 
 /* --------------- */

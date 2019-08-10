@@ -18,11 +18,11 @@ const SignUp = () => {
     const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/user/create?email=${encodeURIComponent(email)}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&secret_key=${encodeURIComponent("OHLuUV~L0jci+=_qw`d=|b?lc`p?'b")}`);
 
     const onLogIn = () => {
-        if (!email) { return setError({ email: 'Email vacio' }) }
-        if (!username) { return setError({ username: 'Usuario vacio' }) }
-        if (!password) { return setError({ password: 'password vacio' }) }
-        if (!passwordConfirm) { return setError({ passwordConfirm: 'Password de confirmacion vacio' }) }
-        if (password !== passwordConfirm) { return setError({ passwordConfirm: 'Los password no coinciden' }) }
+        if (!username) { return setError({ username: 'Debe ingresar un usuario' }) }
+        if (!email) { return setError({ email: 'Debe ingresar un email' }) }
+        if (!password) { return setError({ password: 'Debe ingresar una contraseña' }) }
+        if (!passwordConfirm) { return setError({ passwordConfirm: 'Debe ingresar una contraseña de confirmacion vacio' }) }
+        if (password !== passwordConfirm) { return setError({ passwordConfirm: 'Las constraseñas no coinciden' }) }
         
         setStart(true)
     }
