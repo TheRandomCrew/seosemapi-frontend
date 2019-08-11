@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
+/** Import Componen */
 import Card from './Card'
+/** Import styles */
 import logo from './logo.jpg';
 import SEO from './styles/styles.module.css'
 

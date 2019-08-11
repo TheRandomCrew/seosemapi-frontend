@@ -9,7 +9,7 @@ import PrivateRoute from './PrivateRoute';
 
 /** Import view components */
 import { Home, Page404 } from '../view';
-import { Forgot } from '../view/Forgot';
+import { Forgot } from '../view';
 
 /** @history : Maintains browsing history */
 export const history = createBrowserHistory()

@@ -152,20 +152,27 @@ input[type="submit"]{
 
 .btnSubmit{
     display: block;
-    margin:2em 0; 
+    border-radius: .3em;
+    font-size: .6em;
+    margin: 1em 0; 
     color: white;
     border: none;
     cursor: pointer;
     width: 100%;
-    height: 2.5em;
+    height: 3.5em;
     transition: .5s;
     background-size: 200%;
     background-image: linear-gradient(120deg, #3498fb, #3b5998, #3498fb);
+    transition: .5s;
 }
 
 .btnSubmit:hover{
     color: #f8f8f8;
     background-position: right;
+}
+
+.btnLoad{
+    height: 4.5em;
 }
 
 .linkTo{

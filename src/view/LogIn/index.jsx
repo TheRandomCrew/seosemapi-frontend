@@ -2,15 +2,20 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import SEO from './styles/styles.module.css'
+import SP from './styles/spinner.module.css'
 
+/** Hook Component */
 const LogIn = ({ error = { server: null, email: null, password: null }, loading, setEmail, setPassword, onLogIn }) => {
+  /** Hook States */
   const [emailF, setEmailF] = useState(false)
   const [passwordF, setPasswordF] = useState(false)
+  const [rememberCheck, setRememberCheck] = useState(false)
 
   const onChange = (e) => {
-    const { target: { value, name } } = e;
+    const { target: { value, name, checked } } = e;
     if (name === 'email') setEmail(value);
     else if (name === 'password') setPassword(value)
+    else if (name === "rmb") setRememberCheck(checked)
   }
 
   return (
@@ -38,7 +43,11 @@ const LogIn = ({ error = { server: null, email: null, password: null }, loading,
               />
               <span data-placeholder="Contraseña"></span>
             </div>
-            <input type="submit" className={SEO.btnSubmit} value="Ingresar" onClick={() => { console.log(error); onLogIn() }} />
+            <input type="checkbox" name="rmb" id="rmb" className={SEO.check} onChange={onChange}/>
+            <label htmlFor="rmb" className={SEO.checkLabel}>¿Recordar contraseña?</label>
+            <button type="submit" className={`${SEO.btnSubmit} ${loading ? SEO.btnLoad: null}`} onClick={() => onLogIn()}>
+              {loading ? <Spinner/> : 'Ingresar'}
+            </button>
             <div className={SEO.linkTo}>
               ¿ No tienes una cuenta ? <Link to="./inscribete">Registrate</Link>
               <br /><br />
@@ -51,7 +60,6 @@ const LogIn = ({ error = { server: null, email: null, password: null }, loading,
   )
 }
   
-
 /** Hook  */
 const HeaderLogin = ({ error }) => {
   /** Hook State */
@@ -76,5 +84,11 @@ const HeaderLogin = ({ error }) => {
     </Fragment>
   ); 
 }
+
+const Spinner = () =>(
+  <Fragment>
+      <div className={SP.ldsRoller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </Fragment>
+);
 
 export default LogIn;

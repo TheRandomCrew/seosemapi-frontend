@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './router/router';
 import * as serviceWorker from './serviceWorker';
-/** Global Grid-Styles */
-import './global.css'
-import './grid-styles.css';
+/** Global And Grid Styles */
+import './styles/global.css'
+import './styles/grid-styles.css';
 
 const App = () => {
-    /** Add preloader animation when launching the ap p*/
+    /** Add preloader animation when launching the app */
     React.useEffect(() => {
         const preloader = document.getElementById('ipl-progress-indicator')
         if (preloader) {

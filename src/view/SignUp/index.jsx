@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ModalSignup from './ModalSignup';
 
 import SEO from './styles/styles.module.css';
+import SP from './styles/spinner.module.css';
 
 const SignUp = ({ error, onLogIn, loading, username, layer, setUser, setEmail, setPassword, setPasswordConfirm, setLayer, data }) => {
     const [emailF, setEmailF] = useState(false)
@@ -61,8 +62,10 @@ const SignUp = ({ error, onLogIn, loading, username, layer, setUser, setEmail, s
                                 />
                                 <span data-placeholder="Confirmar Contraseña"></span>
                             </div>
-
-                            <input type="submit" className={SEO.btnSubmit} value={loading ? '...Cargando' : 'Registrarse'} onClick={() => onLogIn()} />
+                            <button type="submit" className={`${SEO.btnSubmit} ${loading ? SEO.btnLoad: null}`} onClick={() => onLogIn()}>
+                                {loading ? <Spinner/> : 'Registrarse'}
+                            </button>
+                            
 
                             <div className={SEO.linkTo}>
                                 ¿ Ya tienes una cuenta ? <Link to="./entra">Ingresa</Link>
@@ -99,5 +102,11 @@ const HeaderSignup = ({ error, layer }) => {
         </Fragment>
     )
 }
+
+const Spinner = () =>(
+    <Fragment>
+        <div className={SP.ldsRoller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </Fragment>
+);
 
 export default SignUp;
