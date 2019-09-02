@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { LineChart, LineSeries, PointSeries } from 'reaviz';
-import { Box, Grid, Text, Heading, Accordion, AccordionPanel } from "grommet";
+import { BarChart, BarSeries, PointSeries } from 'reaviz';
+import { Box, Grid, Text, Heading } from "grommet";
 
 import tokenService from '../../router/token';
-const { apikey } = tokenService.get().token;
 
 const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData, loading }) => {
+
+    const { apikey } = tokenService.get().token || 'dad92e94-4728-47aa-8489-7006974d8411';
+    console.log(chartsData)
     return (
         <Box align="center" justify="start" pad="small" animation="zoomIn" fill="horizontal" gap="xsmall">
             <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }}>
@@ -21,26 +23,12 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
                         <Text weight="bold">
                             Credenciales
                         </Text>
-                        <Accordion multiple>
-                            <AccordionPanel
-                                label={<Text size="large">API Login email</Text>}
-                            >
-                                <Box background="light-2" >
-                                    {email}
-                                </Box>
-                            </AccordionPanel>
-                            {/* <AccordionPanel
-                                label={
-                                    <Text size="xlarge" >
-                                        API Key
-                                    </Text>
-                                }
-                            >
-                                <Box background="light-2">
-                                    <Text size="small"> lsnel-sdf52sm-sdlasm6577</Text>
-                                </Box>
-                            </AccordionPanel> */}
-                        </Accordion>
+                        <Text weight="bold">
+                            API Login email
+                        </Text>
+                        <Text>
+                            {email}
+                        </Text>
                     </Grid>
                     <Grid columns="medium" >
                         <Text weight="bold">
@@ -68,11 +56,12 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
                 </Box>
 
                 {loading && 'Loading...'}
-                <LineChart
-                    data={chartsData}
-                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />}/>}
-                />
             </Box>
+                <BarChart
+                    height={250}
+                    data={chartsData}
+                    series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
+                />
         </Box>
     )
 }

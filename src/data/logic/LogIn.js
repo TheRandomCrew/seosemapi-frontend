@@ -15,7 +15,7 @@ const LogIn = () => {
     const [localPassword, setPassword] = useState('');
     const [error, setError] = useState({})
 
-    const [data, { loading, setStart }] = useFetch(`http://54.39.176.127:35566/auth/login?email=${encodeURIComponent(localEmail)}&password=${encodeURIComponent(localPassword)}`);
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/auth/login?email=${encodeURIComponent(localEmail)}&password=${encodeURIComponent(localPassword)}`);
 
     const onLogIn = () => {
         /** Verifies the form fields and active the hook state "start" of useFetch*/
@@ -28,7 +28,7 @@ const LogIn = () => {
     React.useLayoutEffect(() => {
         /** Check if the user has already logged or if there was an error */
         if (data.length > 0 || data[1] === 200) {
-            tokenService.set({ email:localEmail })
+            tokenService.set({ email:localEmail, apikey: data[0].api_key })
             setStart(false);
             history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
         } else {

@@ -7,8 +7,8 @@ const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
 var date_sort_asc = function (item1, item2) {
-    const date1 = item1.consultation_date;
-    const date2 = item2.consultation_date;
+    const date1 = item1.date;
+    const date2 = item2.date;
     if (date1 > date2) return 1;
     if (date1 < date2) return -1;
     return 0;
@@ -30,33 +30,25 @@ const getDateArray = function (start, end) {
 const getDatesArray = (tableData)=>{
     tableData.sort(date_sort_asc);
     let correctDate = tableData.map(item => {
-        const date = item.consultation_date
+        const date = item.date
             .split(' ')[0]
             .split('-')
             .reverse()
             .join('-');
-        item.consultation_date = new Date(date).toDateString();
+        item.date = new Date(date).toDateString();
         return item;
     });
     let filtered = {};
-    let last = '';
     correctDate.map((item) => {
-        if (filtered[item.consultation_date]) {
-            if (item.consultation_date === last) {
-                filtered[item.consultation_date]++;
-            }
-        } else {
-            filtered[item.consultation_date] = 1;
-            last = item.consultation_date;
-        }
+        filtered[item.date] = item.searches
         return item
     })
-
+    
     const month = getDateArray(ourDate, tomorrow);
-
+    
     const preFinal = { ...month, ...filtered }
     const final = Object.entries(preFinal).map((item, id) => {
-        return { key: new Date(item[0]), data: item[1], id: id.toString() }
+        return { key: `${new Date(item[0])}`, data: item[1], id: id.toString() }
     })
 
     return final

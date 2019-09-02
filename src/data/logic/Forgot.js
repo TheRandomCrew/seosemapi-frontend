@@ -13,7 +13,7 @@ const Forgot = () => {
     const [localEmail, setEmail] = useState('');
     const [error, setError] = useState({})
 
-    const [data, { loading, setStart }] = useFetch(`http://54.39.176.127:35566/user/forgot_password?email=${encodeURIComponent(localEmail)}`);
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/user/forgot_password?email=${encodeURIComponent(localEmail)}`);
 
     const onForgot = () => {
         /** Verifies the form fields and active the hook state "start" of useFetch*/

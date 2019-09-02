@@ -18,7 +18,13 @@ const Dashboard = ({ email, path }) => {
       <Header setSidebar={setSidebar} sidebar={sidebar} email={email} />
       <Sidebar sidebar={sidebar} path={path} />
       <Box gridArea="main" justify="center" align="center">
-        <DashboardRouter email={email} path={path} />
+        <Route path={`${path}busquedas`} render={(props) => <Search {...props} />} />
+        <Route path={`${path}errores`} render={(props) => <Search {...props} />} />
+        <Route path={`${path}`} exact render={(props) => <Overview {...props} email={email} />} />
+        <Route
+          path={path + '/*'}
+          render={(props) => <Overview {...props} email={email} />}
+        />
       </Box>
     </Wrapper>
   )
@@ -41,14 +47,3 @@ const Wrapper = ({ children = undefined, ...rest }) => (
     {children}
   </Grid>
 );
-
-const DashboardRouter = ({ path, email }) => (
-  <Switch>
-    <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
-    <Route path={`${path}/busquedas`} component={Search} />
-    <Route
-      path={path + '/*'}
-      render={(props) => <Overview {...props} email={email} />}
-    />
-  </Switch>
-)

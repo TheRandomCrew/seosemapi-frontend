@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Text, Button } from "grommet";
+import { Box, Grid, Text } from "grommet";
 import { useTimelySearches } from "../../data";
 
 var byMonth = new Date(); // last month date
@@ -17,16 +17,20 @@ tomorrow.setDate(modifier);
 const TimelySearches = ({ isMonthly, email }) => {
     const [{ total, loading, error }, { setStartDate, setEndDate, setTargetEmail, onSearch }] = useTimelySearches();
 
-    const checkSearches = () => {
+    React.useEffect(() => {
+        console.log('hello')
         if (isMonthly) {
             setStartDate(byMonth);
         } else {
             setStartDate(byDay);
         }
-        setTargetEmail(email);
-        setEndDate(tomorrow);
-        onSearch(true);
-    };
+        if(email){
+            setTargetEmail(email);
+            setEndDate(tomorrow);
+            onSearch(true);
+        }
+    },[]);
+
     return (
         <Box
             align="center"
@@ -42,12 +46,13 @@ const TimelySearches = ({ isMonthly, email }) => {
                 </Text>
                 <Text>
                     {error && error + ' found'}
+                    {loading ? 'Loading...' : null}
                     {total}
                 </Text>
-                <Button
+                {/* <Button
                     onClick={() => checkSearches()}
                     label={loading ? 'Loading...' : 'Consultar'}
-                />
+                /> */}
             </Grid>
         </Box>
     )

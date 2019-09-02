@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Heading, Grid, FormField } from 'grommet'
+import { LineChart, LineSeries, PointSeries } from 'reaviz';
+import { Box, Heading, Grid, FormField,Text } from 'grommet'
 import DatePicker from './DatePicker';
 
   const SearchWrapper = ({
     setFrom, setTo, from, to,
-    SearchButton,
+    SearchButton, chartsData, loading,
     children=undefined
 }) => {
 
@@ -33,6 +34,20 @@ import DatePicker from './DatePicker';
          </Grid>
                 {SearchButton}
                 {children}
+            </Box>
+            <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall" >
+                <Box align="start" justify="start" pad="small" fill="horizontal" direction="row-responsive" border={{ "side": "all" }}>
+                    <Text weight="bold">
+                        Búsquedas Mensuales:
+                </Text>
+                    {/* <Select options={["", "Febrero"]} searchPlaceholder="Selecciona un mes" /> */}
+                </Box>
+
+                {loading && 'Loading...'}
+                <LineChart
+                    data={chartsData}
+                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
+                />
             </Box>
         </Box>
     )

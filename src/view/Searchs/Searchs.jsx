@@ -20,6 +20,8 @@ const Searchs = ({
             to={to}
             setTo={setTo}
             setFrom={setFrom}
+            chartsData={tableData}
+            loading={loading}
             SearchButton={<Button
                 style={{ borderRadius: '0' }}
                 label={loading ? 'Buscando' : 'Buscar'}
@@ -37,8 +39,8 @@ const Searchs = ({
             />}
         >
             <DataTable
-                resizeable={true} 
-                columns={[{"header":"Fecha de Consulta","property":"consultation_date","primary":true,"sortable":true},{"header":"Tipo de Busqueda","property":"query_type"},{"header":"Palabra Clave","property":"keyword","search":true},{"property":"query_id","header":"query_id"},{"property":"search_domain","header":"search_domain"},{"property":"country_code","header":"country_code"},{"property":"result_url","header":"result_url"}]}
+                resizeable={true}
+                columns={[{ "header": "Fecha de Consulta", "property": "consultation_date", "primary": true, "sortable": true }, { "header": "Tipo de Busqueda", "property": "query_type" }, { "header": "Palabra Clave", "property": "keyword", "search": true }, { "property": "query_id", "header": "query_id" }, { "property": "search_domain", "header": "search_domain" }, { "property": "country_code", "header": "country_code" }, { "property": "result_url", "header": "result_url" }]}
                 data={tableData}
             />
         </SearchWrapper>
