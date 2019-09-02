@@ -39,6 +39,7 @@ const LogIn = ({ error = { server: null, email: null, password: null }, loading,
               <input name="password" className={passwordF ? `${SEO.focus}` : ``} type='password' error={error.password}
                 onBlur={({ target }) => target.value === '' ? setPasswordF(false) : null}
                 onFocus={() => setPasswordF(true)}
+                autoComplete={rememberCheck?'on':'new-password'}
                 onChange={onChange}
               />
               <span data-placeholder="Contraseña"></span>

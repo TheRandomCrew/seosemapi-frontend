@@ -3,6 +3,9 @@ import React from 'react';
 import { LineChart, LineSeries, PointSeries } from 'reaviz';
 import { Box, Grid, Text, Heading, Accordion, AccordionPanel } from "grommet";
 
+import tokenService from '../../router/token';
+const { apikey } = tokenService.get().token;
+
 const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData, loading }) => {
     return (
         <Box align="center" justify="start" pad="small" animation="zoomIn" fill="horizontal" gap="xsmall">
@@ -13,30 +16,40 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
             </Box>
 
             <Box align="center" justify="center" pad="small" direction="row-responsive" fill="horizontal" background={{ "color": "light-1" }} >
-                <Grid columns={["small", "large"]} >
-                    <Text weight="bold">
-                        Credenciales
-                    </Text>
-                    <Accordion multiple>
-                        <AccordionPanel
-                            label={<Text size="large">API Login email</Text>}
-                        >
-                            <Box background="light-2" >
-                                {email}
-                            </Box>
-                        </AccordionPanel>
-                        {/* <AccordionPanel
-                            label={
-                                <Text size="xlarge" >
-                                    API Key
-                                </Text>
-                            }
-                        >
-                            <Box background="light-2">
-                                <Text size="small"> lsnel-sdf52sm-sdlasm6577</Text>
-                            </Box>
-                        </AccordionPanel> */}
-                    </Accordion>
+                <Grid container>
+                    <Grid columns="medium" >
+                        <Text weight="bold">
+                            Credenciales
+                        </Text>
+                        <Accordion multiple>
+                            <AccordionPanel
+                                label={<Text size="large">API Login email</Text>}
+                            >
+                                <Box background="light-2" >
+                                    {email}
+                                </Box>
+                            </AccordionPanel>
+                            {/* <AccordionPanel
+                                label={
+                                    <Text size="xlarge" >
+                                        API Key
+                                    </Text>
+                                }
+                            >
+                                <Box background="light-2">
+                                    <Text size="small"> lsnel-sdf52sm-sdlasm6577</Text>
+                                </Box>
+                            </AccordionPanel> */}
+                        </Accordion>
+                    </Grid>
+                    <Grid columns="medium" >
+                        <Text weight="bold">
+                            API KEY
+                        </Text>
+                        <Text>
+                            {apikey}
+                        </Text>
+                    </Grid>
                 </Grid>
             </Box>
             {PlanUse}

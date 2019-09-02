@@ -15,7 +15,7 @@ const SignUp = () => {
     const [layer, setLayer] = useState(false);
     const [error, setError] = useState('')
 
-    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/user/create?email=${encodeURIComponent(email)}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&secret_key=${encodeURIComponent("OHLuUV~L0jci+=_qw`d=|b?lc`p?'b")}`);
+    const [data, { loading, setStart }] = useFetch(`http://54.39.176.127:35566/user/create?email=${encodeURIComponent(email)}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&secret_key=${encodeURIComponent("OHLuUV~L0jci+=_qw`d=|b?lc`p?'b")}`);
 
     const onLogIn = () => {
         if (!username) { return setError({ username: 'Debe ingresar un usuario' }) }

@@ -21,7 +21,7 @@ const Search = () => {
     const [tableData, setTableData] = useState([]);
     const [error, setError] = useState({})
 
-    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(byMonth)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    const [data, { loading, setStart }] = useFetch(`http://54.39.176.127:35566/query_search/query_search?start_date=${encodeURIComponent(byMonth)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
     const onSearch = () => {
         setStart(true);

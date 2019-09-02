@@ -15,7 +15,7 @@ const Overview = ({ email }) => {
     /** Hook State */
     const [tableData, setTableData] = React.useState([])
     
-    const [ data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(ourDate)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    const [ data, { loading, setStart }] = useFetch(`http://54.39.176.127:35566/query_search/query_search?start_date=${encodeURIComponent(ourDate)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
     React.useLayoutEffect(() => {
         /** If the fetch is correct then loaded the info in the hook state */

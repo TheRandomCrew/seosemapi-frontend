@@ -17,7 +17,7 @@ const useTimelySearches = () => {
     const [error, setError] = useState('')
     const [
         data, { loading, setStart }
-    ] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&target_email=${encodeURIComponent(targetEmail)}&target_username=israellaguan&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    ] = useFetch(`http://54.39.176.127:35566/query_search/query_search?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&target_email=${encodeURIComponent(targetEmail)}&target_username=israellaguan&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
     const onSearch = () => {
         setStart(true)

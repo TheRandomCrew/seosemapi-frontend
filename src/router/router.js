@@ -4,12 +4,11 @@ import { createBrowserHistory } from 'history';
 import GlobalStore from '../data/store/globalStore';
 
 /** Import logic components */
-import { Dashboard, LogIn, SignUp } from '../data'
+import { Dashboard, LogIn, SignUp,Forgot } from '../data'
 import PrivateRoute from './PrivateRoute';
 
 /** Import view components */
 import { Home, Page404 } from '../view';
-import { Forgot } from '../view';
 
 /** @history : Maintains browsing history */
 export const history = createBrowserHistory()
