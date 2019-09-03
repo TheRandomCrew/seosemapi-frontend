@@ -2,7 +2,8 @@ import React from 'react'
 import { Box, Heading, Grid,  Text } from 'grommet'
 import DatePicker from './DatePicker';
 import Chart from './Chart';
-const SearchWrapper = ({
+
+const ErrorsWrapper = ({
     setFrom, setTo, from, to, email,
     SearchButton, 
     children = undefined
@@ -36,4 +37,4 @@ const SearchWrapper = ({
     )
 }
 
-export default SearchWrapper;
+export default ErrorsWrapper;

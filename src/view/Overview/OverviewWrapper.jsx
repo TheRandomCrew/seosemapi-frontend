@@ -8,7 +8,6 @@ import tokenService from '../../router/token';
 const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData, loading }) => {
 
     const { apikey } = tokenService.get().token || 'dad92e94-4728-47aa-8489-7006974d8411';
-    console.log(chartsData)
     return (
         <Box align="center" justify="start" pad="small" animation="zoomIn" fill="horizontal" gap="xsmall">
             <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }}>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, DataTable, Button } from 'grommet'
 import { Search, Grommet } from 'grommet-icons';
-import SearchWrapper from './SearchesWrapper';
+import ErrorsWrapper from './ErrorsWrapper';
 
-const Searchs = ({
+const Errors = ({
     error, email,
     from, to,
     tableData,
@@ -14,7 +14,7 @@ const Searchs = ({
 }) => {
 
     return (
-        <SearchWrapper
+        <ErrorsWrapper
             ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
             from={from}
             to={to}
@@ -44,8 +44,8 @@ const Searchs = ({
                 columns={[{ "header": "Fecha de Consulta", "property": "consultation_date", "primary": true, "sortable": true }, { "header": "Tipo de Busqueda", "property": "query_type" }, { "header": "Palabra Clave", "property": "keyword", "search": true }, { "property": "query_id", "header": "query_id" }, { "property": "search_domain", "header": "search_domain" }, { "property": "country_code", "header": "country_code" }, { "property": "result_url", "header": "result_url" }]}
                 data={tableData}
             />
-        </SearchWrapper>
+        </ErrorsWrapper>
     )
 }
 
-export default Searchs;
+export default Errors;

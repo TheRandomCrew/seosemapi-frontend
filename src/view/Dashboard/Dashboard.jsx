@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 /** Import logic components */
-import { Search, Overview } from '../../data';
+import { Search, Overview, Errors } from '../../data';
 
 /** Import view components */
 import Sidebar from "./Sidebar";
@@ -18,13 +18,7 @@ const Dashboard = ({ email, path }) => {
       <Header setSidebar={setSidebar} sidebar={sidebar} email={email} />
       <Sidebar sidebar={sidebar} path={path} />
       <Box gridArea="main" justify="center" align="center">
-        <Route path={`${path}busquedas`} render={(props) => <Search {...props} />} />
-        <Route path={`${path}errores`} render={(props) => <Search {...props} />} />
-        <Route path={`${path}`} exact render={(props) => <Overview {...props} email={email} />} />
-        <Route
-          path={path + '/*'}
-          render={(props) => <Overview {...props} email={email} />}
-        />
+        <DashboardRouter email={email} path={path} />
       </Box>
     </Wrapper>
   )
@@ -47,3 +41,15 @@ const Wrapper = ({ children = undefined, ...rest }) => (
     {children}
   </Grid>
 );
+
+const DashboardRouter = ({ path, email }) => (
+  <Switch>
+    <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
+    <Route path={`${path}/busquedas`} render={(props) => <Search {...props}/>} />
+    <Route path={`${path}/errores`} render={(props) => <Errors {...props}/>} />
+    <Route
+      path={path + '/*'}
+      render={(props) => <Overview {...props} email={email} />}
+    />
+  </Switch>
+)

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useFetch } from "../util/hooks";
 
-import Searchs from '../../view/Searchs/Searchs';
+import {Errors as ErrorsWrapper} from '../../view';
 
 import tokenService from '../../router/token';
 
@@ -14,7 +14,7 @@ var tomorrow = new Date();
 const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
-const Search = () => {
+const Errors = () => {
     const [email, setEmail] = useState('');
     const [from,setFrom] = useState(byMonth.toString());
     const [to, setTo] = useState(tomorrow.toString());
@@ -59,7 +59,7 @@ const Search = () => {
 
 
     return (
-        <Searchs
+        <ErrorsWrapper
             error={error}
             from={from}
             to={to}
@@ -73,4 +73,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default Errors

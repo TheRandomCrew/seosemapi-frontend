@@ -1,4 +1,5 @@
 export {default as SignUp} from './SignUp'
+export {default as Errors} from './Errors/Errors'
 export {default as LogIn} from './LogIn'
 export {default as Forgot} from './Forgot'
 export {default as Home} from './Home/Home'

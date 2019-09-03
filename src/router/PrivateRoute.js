@@ -7,7 +7,7 @@ function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props => tokenService.get() ? (
+      render={props => tokenService.get() ? (          
           <Component {...props} />
         ) : (
           <Redirect to={{ pathname: '/entra', state: { from: props.location },}}/>
