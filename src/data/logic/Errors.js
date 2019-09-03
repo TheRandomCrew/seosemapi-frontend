@@ -21,7 +21,7 @@ const Errors = () => {
     const [tableData, setTableData] = useState([]);
     const [error, setError] = useState({})
 
-    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/error_search/error_search?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
     const onSearch = () => {
         setStart(true);
@@ -57,7 +57,7 @@ const Errors = () => {
       }
     },[])
 
-
+console.log(tableData)
     return (
         <ErrorsWrapper
             error={error}

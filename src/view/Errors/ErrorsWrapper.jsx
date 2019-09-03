@@ -1,21 +1,22 @@
 import React from 'react'
-import { Box, Heading, Grid,  Text } from 'grommet'
+import { Box, Heading, Grid, Text } from 'grommet'
 import DatePicker from './DatePicker';
 import Chart from './Chart';
 
 const ErrorsWrapper = ({
     setFrom, setTo, from, to, email,
-    SearchButton, 
+    SearchButton,
     children = undefined
 }) => {
 
     return (
         <Box style={{ "height": "100vh" }} fill>
+                <Chart email={email} from={from} to={to} />
             <Box align="center" justify="start" pad="xsmall" animation="zoomIn" fill='horizontal' gap="xsmall">
                 <Heading textAlign="start" level="3" color="brand">
                     BÚSQUEDAS
                 </Heading>
-                <Grid columns={["small","auto", "small"]}>
+                <Grid columns={["small", "auto", "small"]}>
                     <DatePicker
                         name={'Desde'}
                         value={from}
@@ -32,7 +33,6 @@ const ErrorsWrapper = ({
                 {SearchButton}
                 {children}
             </Box>
-            <Chart email={email} from={from} to={to} />
         </Box>
     )
 }

@@ -51,16 +51,15 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
                     <Text weight="bold">
                         Búsquedas Mensuales:
                 </Text>
-                    {/* <Select options={["", "Febrero"]} searchPlaceholder="Selecciona un mes" /> */}
                 </Box>
 
                 {loading && 'Loading...'}
-            </Box>
                 <BarChart
                     height={250}
                     data={chartsData}
                     series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
                 />
+            </Box>
         </Box>
     )
 }

@@ -41,6 +41,7 @@ const Searchs = ({
         >
             <DataTable
                 resizeable={true}
+                step={50}
                 columns={[{ "header": "Fecha de Consulta", "property": "consultation_date", "primary": true, "sortable": true }, { "header": "Tipo de Busqueda", "property": "query_type" }, { "header": "Palabra Clave", "property": "keyword", "search": true }, { "property": "query_id", "header": "query_id" }, { "property": "search_domain", "header": "search_domain" }, { "property": "country_code", "header": "country_code" }, { "property": "result_url", "header": "result_url" }]}
                 data={tableData}
             />

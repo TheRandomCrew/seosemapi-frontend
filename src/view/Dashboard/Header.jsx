@@ -18,9 +18,6 @@ function Header({ setSidebar, sidebar, email }) {
       <Menu
         label={email}
         items={[
-          {label: 'lightTheme', onClick: ()=>dispatch({type: 'SET_THEME', theme: 0})},
-          {label: 'DarkTheme', onClick: ()=>dispatch({type: 'SET_THEME', theme: 1})},
-          {label: 'hpTheme', onClick: ()=>dispatch({type: 'SET_THEME', theme: 2})},
           { label: 'LogOut', onClick: () => logOut() }
         ]}
       />

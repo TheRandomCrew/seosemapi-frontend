@@ -12,7 +12,7 @@ const Errors = ({
     setFrom,
     setTo
 }) => {
-
+console.log(tableData)
     return (
         <ErrorsWrapper
             ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
@@ -41,7 +41,8 @@ const Errors = ({
         >
             <DataTable
                 resizeable={true}
-                columns={[{ "header": "Fecha de Consulta", "property": "consultation_date", "primary": true, "sortable": true }, { "header": "Tipo de Busqueda", "property": "query_type" }, { "header": "Palabra Clave", "property": "keyword", "search": true }, { "property": "query_id", "header": "query_id" }, { "property": "search_domain", "header": "search_domain" }, { "property": "country_code", "header": "country_code" }, { "property": "result_url", "header": "result_url" }]}
+                step={100}
+                columns={[{ "header": "Fecha de Consulta", "property": "error_time", "primary": true, "sortable": true }, { "header": "Tipo de Error", "property": "error_description" }]}
                 data={tableData}
             />
         </ErrorsWrapper>

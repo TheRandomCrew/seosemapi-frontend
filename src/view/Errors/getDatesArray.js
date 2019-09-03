@@ -30,17 +30,25 @@ const getDateArray = function (start, end) {
 const getDatesArray = (tableData)=>{
     tableData.sort(date_sort_asc);
     let correctDate = tableData.map(item => {
-        const date = item.date
+        const date = item.error_time
             .split(' ')[0]
             .split('-')
             .reverse()
             .join('-');
-        item.date = new Date(date).toDateString();
+        item.error_time = new Date(date).toDateString();
         return item;
     });
     let filtered = {};
+    let last = '';
     correctDate.map((item) => {
-        filtered[item.date] = item.searches
+        if (filtered[item.error_time]) {
+            if (item.error_time === last) {
+                filtered[item.error_time]++;
+            }
+        } else {
+            filtered[item.error_time] = 1;
+            last = item.error_time;
+        }
         return item
     })
     

@@ -44,7 +44,8 @@ const LogIn = () => {
         /** If the user is registered replace the browsing history to the user's dashborad */
         if (localStorage.hasOwnProperty('seosemapi')) {
             try {
-                history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
+                const { email } = tokenService.get().token
+                history.replace(`/dashboard/${encodeURIComponent(email.split('@')[0])}`)
             } catch (e) {
                 console.error(e)
             }

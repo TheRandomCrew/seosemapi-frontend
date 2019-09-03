@@ -20,7 +20,13 @@ const Home = () => (
                 <Card {...cardInfo._3} />
             </section>
 
-            <SectionF className={`row ${SEO.contSectionF}`} />    
+            <SectionF className={`row ${SEO.contSectionF}`} />   
+            <p>
+                Visita nuestra Tienda: 
+            </p>
+            <a href='https://server.seosemapi.com/' >
+                SEOSEMAPI Store
+            </a> 
         </main>
 
         <footer className={SEO.footer}>
@@ -89,7 +95,7 @@ const SectionF = () => (
                     <div className="text-left">
                         <h4 style={{ color: 'white' }}><i className="fa fa-chart-pie"></i>Marketing</h4>
                         <h3 className="SEO-title-tb"><strong>El SEO también es <span style={{ color: '#3b5998', fontWeight: 700 }} >Marketing</span></strong></h3>
-                        <p className="SEO-text-tb">Deja que tus clienteste encuentren al aparecer de primero en los buscadores más famosas del mundo</p>
+                        <p className="SEO-text-tb">Deja que tus clientes te encuentren al aparecer de primero en los buscadores más famosas del mundo</p>
                     </div>
                 </div>
             </div>

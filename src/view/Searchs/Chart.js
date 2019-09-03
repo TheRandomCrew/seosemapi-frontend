@@ -38,20 +38,17 @@ const Chart = ({ email, from, to }) => {
     }, [email]);
     console.log(tableData)
     return (
-        <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall" >
-            <Box align="start" justify="start" pad="small" fill="horizontal" direction="row-responsive" border={{ "side": "all" }}>
+        <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall">
+                {loading && 'Loading...'}
+                <BarChart
+                    data={tableData}
+                    height={200}
+                    style={{zIndex:0}}
+                    series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
+                />
                 <Text weight="bold">
                     Búsquedas Mensuales:
-                    </Text>
-                {/* <Select options={["", "Febrero"]} searchPlaceholder="Selecciona un mes" /> */}
-            </Box>
-
-            {loading && 'Loading...'}
-            <BarChart
-                data={tableData}
-                height={250}
-                series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
-            />
+                </Text>
         </Box>
     )
 };

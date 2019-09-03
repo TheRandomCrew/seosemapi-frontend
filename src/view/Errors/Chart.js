@@ -18,7 +18,7 @@ const Chart = ({ email, from, to }) => {
             if (data[0].result) {
                 const { result } = data[0];
                 if (typeof (result) === "object") {
-                    const final = getDatesArray(result)
+                    const final = getDatesArray(result);
                     setTableData(final);
                 }
             }
@@ -36,22 +36,20 @@ const Chart = ({ email, from, to }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [email]);
-    console.log(tableData)
+
     return (
         <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall" >
-            <Box align="start" justify="start" pad="small" fill="horizontal" direction="row-responsive" border={{ "side": "all" }}>
-                <Text weight="bold">
-                    Errorres en las Búsquedas Mensuales:
-                    </Text>
-                {/* <Select options={["", "Febrero"]} searchPlaceholder="Selecciona un mes" /> */}
-            </Box>
 
-            {loading && 'Loading...'}
             <BarChart
                 data={tableData}
-                height={250}
+                height={200}
                 series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
             />
+            <Text weight="bold">
+                Errorres en las Búsquedas Mensuales:
+            </Text>
+
+            {loading && 'Loading...'}
         </Box>
     )
 };
