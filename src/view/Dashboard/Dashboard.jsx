@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 /** Import logic components */
-import { Search, Overview, Errors } from '../../data';
+import { Search, Overview, Errors, Profile } from '../../data';
 
 /** Import view components */
 import Sidebar from "./Sidebar";
@@ -10,7 +10,7 @@ import Header from "./Header";
 
 import { Box, Grid } from "grommet";
 
-const Dashboard = ({ email, path }) => {
+const Dashboard = ({ email, path, apikey }) => {
   const [sidebar, setSidebar] = React.useState(true);
   /** This Dashboard contain a dashboard route */
   return (
@@ -18,7 +18,7 @@ const Dashboard = ({ email, path }) => {
       <Header setSidebar={setSidebar} sidebar={sidebar} email={email} />
       <Sidebar sidebar={sidebar} path={path} />
       <Box gridArea="main" justify="center" align="center">
-        <DashboardRouter email={email} path={path} />
+        <DashboardRouter email={email} path={path} apikey={apikey} />
       </Box>
     </Wrapper>
   )
@@ -42,14 +42,16 @@ const Wrapper = ({ children = undefined, ...rest }) => (
   </Grid>
 );
 
-const DashboardRouter = ({ path, email }) => (
+const DashboardRouter = ({ path, email, apikey }) => (
   <Switch>
-    <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} />} />
-    <Route path={`${path}/busquedas`} render={(props) => <Search {...props}/>} />
-    <Route path={`${path}/errores`} render={(props) => <Errors {...props}/>} />
+    <Route path={`${path}/`} exact render={(props) => <Overview {...props} email={email} apikey={apikey} />} />
+    <Route path={`${path}/busquedas`} render={(props) => <Search {...props} email={email} apikey={apikey} />} />
+    <Route path={`${path}/busquedas`} render={(props) => <Search {...props} email={email} apikey={apikey} />} />
+    <Route path={`${path}/errores`} render={(props) => <Errors {...props} email={email} apikey={apikey} />} />
+    <Route path={`${path}/perfil`} render={(props) => <Profile {...props} email={email} />} />
     <Route
       path={path + '/*'}
-      render={(props) => <Overview {...props} email={email} />}
+      render={(props) => <Overview {...props} email={email} apikey={apikey} />}
     />
   </Switch>
 )

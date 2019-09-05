@@ -7,15 +7,15 @@ const pastMonth = ourDate.getMonth() - 1;
 ourDate.setMonth(pastMonth);
 
 var tomorrow = new Date();
-const modifier = tomorrow.getDate() + 1;
+const modifier = tomorrow.getDate();
 tomorrow.setDate(modifier);
 
 /** Hook Component */
-const Overview = ({ email }) => {
+const Overview = ({ email, apikey }) => {
     /** Hook State */
-    const [tableData, setTableData] = React.useState([])
+    const [tableData, setTableData] = React.useState([{date: new Date(), searches: 0}])
     
-    const [ data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/statistics?start_date=${encodeURIComponent(ourDate)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    const [ data, { loading, setStart }] = useFetch(`https://data.seosemapi.com:35566/query_search/statistics?start_date=${encodeURIComponent(ourDate)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent(apikey)}`);
 
     React.useLayoutEffect(() => {
         /** If the fetch is correct then loaded the info in the hook state */
@@ -24,6 +24,7 @@ const Overview = ({ email }) => {
             if (data[0].result) {
                 const { result } = data[0];
                 if (typeof (result) === "object") {
+                    console.log(result)
                     setTableData(result);
                 }
             }

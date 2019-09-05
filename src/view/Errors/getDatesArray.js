@@ -56,7 +56,7 @@ const getDatesArray = (tableData)=>{
     
     const preFinal = { ...month, ...filtered }
     const final = Object.entries(preFinal).map((item, id) => {
-        return { key: `${new Date(item[0])}`, data: item[1], id: id.toString() }
+        return { key: new Date(item[0]), data: item[1], id: (id + 1).toString() }
     })
 
     return final

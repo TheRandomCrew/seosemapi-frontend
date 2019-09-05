@@ -18,7 +18,6 @@ const TimelySearches = ({ isMonthly, email }) => {
     const [{ total, loading, error }, { setStartDate, setEndDate, setTargetEmail, onSearch }] = useTimelySearches();
 
     React.useEffect(() => {
-        console.log('hello')
         if (isMonthly) {
             setStartDate(byMonth);
         } else {

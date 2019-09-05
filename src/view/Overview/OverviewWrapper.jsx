@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BarChart, BarSeries, PointSeries } from 'reaviz';
+import { LineChart, LineSeries, PointSeries } from 'reaviz';
 import { Box, Grid, Text, Heading } from "grommet";
 
 import tokenService from '../../router/token';
@@ -54,10 +54,10 @@ const OverviewWrapper = ({ CheckMonthly, CheckDayly, email, PlanUse, chartsData,
                 </Box>
 
                 {loading && 'Loading...'}
-                <BarChart
+                <LineChart
                     height={250}
                     data={chartsData}
-                    series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
+                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
                 />
             </Box>
         </Box>

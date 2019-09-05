@@ -2,14 +2,17 @@ import React from 'react';
 import { Box, Button, Text, Menu } from "grommet";
 import { history } from '../../router/router'
 import tokenService from '../../router/token';
-import { globalActionsContext } from '../../data/store/globalContext';
 
 function Header({ setSidebar, sidebar, email }) {
-  const dispatch = React.useContext(globalActionsContext);
   const logOut = () => {
     tokenService.delete()
     history.replace(`/`)
   }
+
+  const toProfile = () => {
+    history.replace(`/dashboard/perfil`)
+  };
+
   return (
     <Nav>
       <Button onClick={() => setSidebar(!sidebar)}>
@@ -18,6 +21,7 @@ function Header({ setSidebar, sidebar, email }) {
       <Menu
         label={email}
         items={[
+          { label: 'Perfil', onClick: () => toProfile() },
           { label: 'LogOut', onClick: () => logOut() }
         ]}
       />

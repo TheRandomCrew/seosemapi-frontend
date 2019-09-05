@@ -5,9 +5,9 @@ import getDatesArray from './getDatesArray';
 import TimelySearches from './TimelySearches';
 
 const Overview = ({
-    email, tableData, loading
+    email, loading, tableData=[{date: new Date(), searches: 0}]
 }) => {
-    const [chartData, setChartData] = React.useState([])
+    const [chartData, setChartData] = React.useState([{key: new Date(), id: 1, data: 0}])
 
     React.useLayoutEffect(() => {
         if (tableData.length > 0) {

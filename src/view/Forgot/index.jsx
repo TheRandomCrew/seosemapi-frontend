@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import SEO from './styles/styles.module.css'
 import SP from './styles/spinner.module.css'
 
-const Forgot = ({ error = { server: null, email: null }, loading }) => {
-  const [email, setEmail] = React.useState(false);
+const Forgot = ({ email, error = { server: null, email: null }, loading, onForgot, setEmail }) => {
   const [emailF, setEmailF] = useState(false)
   const onConfirm = () => {
     console.log('Well Done', email)
+    onForgot()
   }
 
   const onChange = (e) => {

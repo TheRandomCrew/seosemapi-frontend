@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { BarChart, BarSeries, PointSeries } from 'reaviz';
+import { LineChart, LineSeries, PointSeries } from 'reaviz';
 
 import getDatesArray from './getDatesArray';
 import { Box, Text } from 'grommet';
 import { useFetch } from '../../data/util/hooks';
 
 const Chart = ({ email, from, to }) => {
-    const [tableData, setTableData] = React.useState([]);
+    const [tableData, setTableData] = React.useState([{key: new Date(), id: 1, data: 0}]);
 
-    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/statistics?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com:35566/query_search/statistics?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
     React.useLayoutEffect(() => {
         /** If the fetch is correct then loaded the info in the hook state */
@@ -36,15 +36,15 @@ const Chart = ({ email, from, to }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [email]);
-    console.log(tableData)
+    
     return (
         <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall">
                 {loading && 'Loading...'}
-                <BarChart
+                <LineChart
                     data={tableData}
                     height={200}
                     style={{zIndex:0}}
-                    series={<BarSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
+                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
                 />
                 <Text weight="bold">
                     Búsquedas Mensuales:

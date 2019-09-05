@@ -30,12 +30,12 @@ const getDateArray = function (start, end) {
 const getDatesArray = (tableData)=>{
     tableData.sort(date_sort_asc);
     let correctDate = tableData.map(item => {
-        const date = item.date
-            .split(' ')[0]
-            .split('-')
-            .reverse()
-            .join('-');
-        item.date = new Date(date).toDateString();
+        // const date = item.date
+        //     .split(' ')[0]
+        //     .split('-')
+        //     .reverse()
+        //     .join('-');
+        item.date = new Date(item.date).toDateString();
         return item;
     });
     let filtered = {};
@@ -48,7 +48,7 @@ const getDatesArray = (tableData)=>{
     
     const preFinal = { ...month, ...filtered }
     const final = Object.entries(preFinal).map((item, id) => {
-        return { key: `${new Date(item[0])}`, data: item[1], id: id.toString() }
+        return { key: new Date(item[0]), data: item[1], id: id.toString() }
     })
 
     return final

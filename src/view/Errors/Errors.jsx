@@ -12,7 +12,6 @@ const Errors = ({
     setFrom,
     setTo
 }) => {
-console.log(tableData)
     return (
         <ErrorsWrapper
             ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
@@ -41,9 +40,22 @@ console.log(tableData)
         >
             <DataTable
                 resizeable={true}
-                step={100}
-                columns={[{ "header": "Fecha de Consulta", "property": "error_time", "primary": true, "sortable": true }, { "header": "Tipo de Error", "property": "error_description" }]}
+                step={10}
+                columns={[
+                    { 
+                        "header": "Fecha de Consulta",
+                         "property": "error_time",
+                          "primary": true, "sortable": true,
+                          render: datum => <h4>{datum.error_time}</h4>
+                     }, 
+                    { 
+                        "header": "Tipo de Error", 
+                        "property": "error_description",
+                        render: datum => <span>{datum.error_description}</span>
+                    }
+                ]}
                 data={tableData}
+                onMore={() => console.log(`InfiniteScroll fires onMore after loading ${10} items`)}
             />
         </ErrorsWrapper>
     )

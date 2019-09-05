@@ -3,25 +3,22 @@ import { useFetch } from "../util/hooks";
 
 import Searchs from '../../view/Searchs/Searchs';
 
-import tokenService from '../../router/token';
-
 var byMonth = new Date(); // last month date
 const pastMonth = byMonth.getMonth() - 1;
 byMonth.setMonth(pastMonth);
 
 
 var tomorrow = new Date();
-const modifier = tomorrow.getDate() + 1;
+const modifier = tomorrow.getDate();
 tomorrow.setDate(modifier);
 
-const Search = () => {
-    const [email, setEmail] = useState('');
+const Search = ({email, apikey}) => {
     const [from,setFrom] = useState(byMonth.toString());
     const [to, setTo] = useState(tomorrow.toString());
     const [tableData, setTableData] = useState([]);
     const [error, setError] = useState({})
 
-    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com:35566/query_search/query_search?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent(apikey)}`);
 
     const onSearch = () => {
         setStart(true);
@@ -51,11 +48,11 @@ const Search = () => {
     }, [data, setStart]);
 
     React.useEffect(() => {
-        if (localStorage.hasOwnProperty('seosemapi')) {
-            const { email  } = tokenService.get().token;
-            setEmail(email);
+        setStart(true)
+      return () => {
+        setStart(false)
       }
-    },[])
+    },[email]);
 
 
     return (

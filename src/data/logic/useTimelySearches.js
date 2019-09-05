@@ -6,7 +6,7 @@ const pastMonth = ourDate.getMonth() - 1;
 ourDate.setDate(pastMonth);
 
 var tomorrow = new Date();
-const modifier = tomorrow.getDate() + 1;
+const modifier = tomorrow.getDate();
 tomorrow.setDate(modifier);
 
 const useTimelySearches = () => {
@@ -17,7 +17,7 @@ const useTimelySearches = () => {
     const [error, setError] = useState('')
     const [
         data, { loading, setStart }
-    ] = useFetch(`https://data.seosemapi.com/query_search/query_search?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&target_email=${encodeURIComponent(targetEmail)}&target_username=israellaguan&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
+    ] = useFetch(`https://data.seosemapi.com:35566/query_search/query_search?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&target_email=${encodeURIComponent(targetEmail)}&target_username=israellaguan&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 
     const onSearch = () => {
         setStart(true)

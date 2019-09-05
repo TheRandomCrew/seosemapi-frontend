@@ -13,6 +13,8 @@ const Searchs = ({
     setTo
 }) => {
 
+    const step = 10;
+
     return (
         <SearchWrapper
             ErrorMsg={error.server && <p style={{ color: 'red' }}>{error.server}</p>}
@@ -40,10 +42,49 @@ const Searchs = ({
             />}
         >
             <DataTable
-                resizeable={true}
-                step={50}
-                columns={[{ "header": "Fecha de Consulta", "property": "consultation_date", "primary": true, "sortable": true }, { "header": "Tipo de Busqueda", "property": "query_type" }, { "header": "Palabra Clave", "property": "keyword", "search": true }, { "property": "query_id", "header": "query_id" }, { "property": "search_domain", "header": "search_domain" }, { "property": "country_code", "header": "country_code" }, { "property": "result_url", "header": "result_url" }]}
+                // resizeable={true}
+                step={step}
+                columns={[
+                    {
+                        "header": "Fecha de Consulta",
+                        "property": "consultation_date",
+                        "primary": true, "sortable": true,
+                        render: datum => <h4>{new Date(datum.consultation_date).toLocaleDateString("es-ES")}</h4>
+                    },
+                    {
+                        "header": "Tipo de Busqueda", 
+                        "property": "query_type", 
+                        render: datum => <span>{datum.query_type}</span>
+                    },
+                    {
+                        "header": "Palabra Clave", 
+                        "property": "keyword", 
+                        "search": true, 
+                        render: datum => <h4>{datum.keyword}</h4>
+                    },
+                    {
+                        "property": "query_id", 
+                        "header": "query_id", 
+                        render: datum => <code>{datum.query_id}</code>
+                    },
+                    {
+                        "header": "Dominio de Busqueda", 
+                        property: "search_domain", 
+                        render: datum => <span>{datum.search_domain}</span>
+                    },
+                    {
+                        "header": "Pais", 
+                        "property": "country_code", 
+                        render: datum => <span>{datum.country_code}</span>
+                    },
+                    {
+                        "header": "URL", 
+                        "property": "result_url", 
+                        render: datum => <a href={datum.result_url} target="_blank" rel="noopener noreferrer">link</a>
+                    }
+                ]}
                 data={tableData}
+                onMore={() => console.log(`InfiniteScroll fires onMore after loading ${10} items`)}
             />
         </SearchWrapper>
     )

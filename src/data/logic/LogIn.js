@@ -15,7 +15,7 @@ const LogIn = () => {
     const [localPassword, setPassword] = useState('');
     const [error, setError] = useState({})
 
-    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com/auth/login?email=${encodeURIComponent(localEmail)}&password=${encodeURIComponent(localPassword)}`);
+    const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com:35566/auth/login?email=${encodeURIComponent(localEmail)}&password=${encodeURIComponent(localPassword)}`);
 
     const onLogIn = () => {
         /** Verifies the form fields and active the hook state "start" of useFetch*/
