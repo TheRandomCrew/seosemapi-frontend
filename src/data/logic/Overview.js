@@ -13,7 +13,7 @@ tomorrow.setDate(modifier);
 /** Hook Component */
 const Overview = ({ email, apikey }) => {
     /** Hook State */
-    const [tableData, setTableData] = React.useState([{date: new Date(), searches: 0}])
+    const [tableData, setTableData] = React.useState([{date: new Date().toLocaleDateString(), searches: 0}])
     
     const [ data, { loading, setStart }] = useFetch(`https://data.seosemapi.com:35566/query_search/statistics?start_date=${encodeURIComponent(ourDate)}&end_date=${encodeURIComponent(tomorrow)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent(apikey)}`);
 
@@ -42,7 +42,7 @@ const Overview = ({ email, apikey }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [email])
-
+    
     return (
         <OverviewView
             email={email}

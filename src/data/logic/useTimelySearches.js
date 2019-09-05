@@ -10,8 +10,8 @@ const modifier = tomorrow.getDate();
 tomorrow.setDate(modifier);
 
 const useTimelySearches = () => {
-    const [startDate, setStartDate] = useState(ourDate.toDateString());
-    const [endDate, setEndDate] = useState(tomorrow.toDateString());
+    const [startDate, setStartDate] = useState(ourDate.toLocaleDateString());
+    const [endDate, setEndDate] = useState(tomorrow.toLocaleDateString());
     const [targetEmail, setTargetEmail] = useState('');
     const [total, setTotal] = useState(null);
     const [error, setError] = useState('')

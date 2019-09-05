@@ -20,7 +20,7 @@ const getDateArray = function (start, end) {
         dt = new Date(start);
 
     while (dt <= end) {
-        const thisDate = new Date(dt).toDateString();
+        const thisDate = new Date(dt).toLocaleDateString();
         arr[thisDate] = 0
         dt.setDate(dt.getDate() + 1);
     }
@@ -35,7 +35,7 @@ const getDatesArray = (tableData)=>{
         //     .split('-')
         //     .reverse()
         //     .join('-');
-        item.date = new Date(item.date).toDateString();
+        item.date = new Date(item.date).toLocaleDateString();
         return item;
     });
     let filtered = {};

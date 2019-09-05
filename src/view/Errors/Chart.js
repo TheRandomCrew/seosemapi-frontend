@@ -7,7 +7,7 @@ import { Box, Text } from 'grommet';
 import { useFetch } from '../../data/util/hooks';
 
 const Chart = ({ email, from, to }) => {
-    const [tableData, setTableData] = React.useState([{key: new Date(), id: 1, data: 0}]);
+    const [tableData, setTableData] = React.useState([{key: new Date().toLocaleDateString(), id: 1, data: 0}]);
 
     const [data, { loading, setStart }] = useFetch(`https://data.seosemapi.com:35566/error_search/error_search?start_date=${encodeURIComponent(from)}&end_date=${encodeURIComponent(to)}&target_email=${encodeURIComponent(email)}&api_key=${encodeURIComponent('dad92e94-4728-47aa-8489-7006974d8411')}`);
 

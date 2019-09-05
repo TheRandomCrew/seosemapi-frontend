@@ -13,8 +13,8 @@ const modifier = tomorrow.getDate();
 tomorrow.setDate(modifier);
 
 const Errors = ({email, apikey}) => {
-    const [from,setFrom] = useState(byMonth.toString());
-    const [to, setTo] = useState(tomorrow.toString());
+    const [from,setFrom] = useState(byMonth.toLocaleDateString());
+    const [to, setTo] = useState(tomorrow.toLocaleDateString());
     const [tableData, setTableData] = useState([]);
     const [error, setError] = useState({})
 
