@@ -49,7 +49,7 @@ const Searchs = ({
                         "header": "Fecha de Consulta",
                         "property": "consultation_date",
                         "primary": true, "sortable": true,
-                        render: datum => <h4>{new Date(datum.consultation_date).toLocaleDateString()}</h4>
+                        render: datum => <h4>{datum.consultation_date}</h4>
                     },
                     {
                         "header": "Tipo de Busqueda", 

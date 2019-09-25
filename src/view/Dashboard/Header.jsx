@@ -3,6 +3,8 @@ import { Box, Button, Text, Menu } from "grommet";
 import { history } from '../../router/router'
 import tokenService from '../../router/token';
 
+import Logo from '../Assets/logo.png';
+
 function Header({ setSidebar, sidebar, email }) {
   const logOut = () => {
     tokenService.delete()
@@ -16,10 +18,10 @@ function Header({ setSidebar, sidebar, email }) {
   return (
     <Nav>
       <Button onClick={() => setSidebar(!sidebar)}>
-        <Text size="large">SEOSEMAPI LOGO</Text>
+        <img src={Logo} alt='SEOSEMAPI' height='35px'/>
       </Button>
       <Menu
-        label={email}
+        label={<Text color='blue'>Hello, <b>{email}</b></Text>}
         items={[
           { label: 'Perfil', onClick: () => toProfile() },
           { label: 'LogOut', onClick: () => logOut() }
@@ -39,7 +41,7 @@ const Nav = ({ children = undefined, ...rest }) => (
     align="center"
     justify="between"
     pad={{ horizontal: "medium", vertical: "small" }}
-    background="brand"
+    background="white"
     animation='slideDown'
     {...rest}
   >

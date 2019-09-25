@@ -14,7 +14,7 @@ var tomorrow = new Date();
 const modifier = tomorrow.getDate() + 1;
 tomorrow.setDate(modifier);
 
-const TimelySearches = ({ isMonthly, email }) => {
+const TimelySearches = ({ isMonthly, email, plan }) => {
     const [{ total, loading, error }, { setStartDate, setEndDate, setTargetEmail, onSearch }] = useTimelySearches();
 
     React.useEffect(() => {
@@ -23,37 +23,30 @@ const TimelySearches = ({ isMonthly, email }) => {
         } else {
             setStartDate(byDay);
         }
-        if(email){
+        if (email) {
             setTargetEmail(email);
             setEndDate(tomorrow);
             onSearch(true);
         }
-    },[]);
+    }, []);
 
     return (
-        <Box
-            align="center"
-            justify="center"
-            pad="small"
-            direction="row-responsive"
-            fill="horizontal"
-            background={{ "color": "light-1" }}
-        >
-            <Grid columns={["small", "large"]}>
-                <Text weight="bold">
-                    Búsquedas {isMonthly ? 'este mes' : 'hoy'}:
-                </Text>
-                <Text>
-                    {error && error + ' found'}
-                    {loading ? 'Loading...' : null}
-                    {total}
-                </Text>
-                {/* <Button
-                    onClick={() => checkSearches()}
-                    label={loading ? 'Loading...' : 'Consultar'}
-                /> */}
-            </Grid>
-        </Box>
+        <>
+            <Text color='slategray'>
+                {isMonthly ? <>
+                    <b>Plan Name:</b> {plan&&plan}(you have used {total} )
+                    </> : null}
+            </Text>
+            <br />
+            <Text color='slategray'>
+                <b>Number of searches {isMonthly ? 'this month' : 'today'}:</b>{total}
+            </Text>
+            <Text>
+                {error && error + ' found'}
+                {loading ? 'Loading...' : null}
+
+            </Text>
+        </>
     )
 }
 

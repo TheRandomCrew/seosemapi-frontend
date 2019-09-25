@@ -4,7 +4,7 @@ import tokenService from '../../router/token'
 import { Dashboard as DahsboardView } from '../../view';
 
 const Dashboard = ({ match }) => {
-    const { email, apikey } = tokenService.get().token || '';
+    const { email, apikey, plan } = tokenService.get().token || '';
     /** If exist token show dashboar else redirect to signup */
     if (tokenService.get()) {
         return (
@@ -13,6 +13,7 @@ const Dashboard = ({ match }) => {
                     email={email}
                     path={match.url}
                     apikey={apikey}
+                    plan={plan}
                 />
             )
         )

@@ -1,219 +1,292 @@
 /*---------------------*/
 /*----- Background ----*/
 /*---------------------*/
-.background{
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(
-      rgba(59, 89, 112, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),url('./bg.jpg');
-    background-size: cover;
+
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+.background {
+    background: center center / contain no-repeat url(../../Assets/background.png);
+    height    : 90vh;
+    width     : 100vw;
+    margin    : 0;
+    padding   : 0;
+    font-family: "Nunito", sans-serif;
 }
 
-/*-----------------*/
-/*----- Header ----*/
-/*-----------------*/
-.contHeader {
-    margin-top:10%;
-    color:white;
+.container {
+    max-width: 992px;
+    margin   : 0 auto;
 }
 
 /*-----------------*/
 /*----- Errors ----*/
 /*-----------------*/
-.error{
+.error {
     max-height: 0.5em;
-    min-width: 100%;
-    position: absolute;
-    top: 0em;
-    padding:.5em;
-    color:white;
-    background:var(--danger);
+    min-width : 100%;
+    position  : absolute;
+    top       : 0em;
+    padding   : .5em;
+    color     : white;
+    background: red;
 }
 
-.error small{
+.error small {
     font-size: .5em;
 }
 
 /*-----------------*/
 /*----- Login -----*/
 /*-----------------*/
-.lForm{
-    width:15em;
-    height: 19em;
-    background-color: #f1f1f1;
-    padding: 1.5em 1.5em;
-    border-radius: 1em;
-    
-    position: absolute;
-    top:35%;
-    z-index:3;
 
-    animation: login-Down 2s forwards;
+
+.focus+span::before {
+    top: -5px;
 }
 
-.lForm h1
-{
-    text-align: center;
-    margin-bottom: .5em;
-    font-size: 1em;
-}
-
-.lForm p,
-.lForm span,
-input[type="submit"]{
-    font-size: .6em;
-}
-
-.textLabel{
-    border-bottom: 2px solid #adadad;
-    position: relative;
-    margin: 1em 0;
-}
-
-.textLabel input{
-    color: #333;
-    border: none;
-    width: 100%;
-    outline: none;
-    background: none;
-    padding: 0 5px;
-    height: 2em;
-    margin-top: .8em;
-    font-size: .6em;
-}
-
-.textLabel span::before{
-    content: attr(data-placeholder);
-    position:absolute;
-    color: #adadad;
-    top: 27%;
-    left: 0;
-    transform: translate(0%,20%);
-    z-index: -1;
-    transition: .5s;
-}
-
-.textLabel span::after{
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    position: absolute;
-    transform: translate(-100%,0%);
-    top: 100%;
-    background-image: linear-gradient(120deg, #3498fb, #3b5998);
-    transition: .5s;
-}
-
-.focus + span::before{
-    top:-5px;
-}
-
-.focus + span::after{
+.focus+span::after {
     width: 100%;
 }
 
-.check{
+.check {
     margin-right: .6em;
+
+}
+
+.checkLabel {
+    font-size: .8em;
+}
+
+.btnSubmit {
+    display         : block;
+    border-radius   : .3em;
+    font-size       : .6em;
+    margin          : 1.2em 0;
+    color           : white;
+    border          : none;
+    cursor          : pointer;
+    width           : 100%;
+    height          : 3.5em;
+    transition      : .5s;
+    background-size : 200%;
+    background-image: linear-gradient(120deg, #3498fb, #3b5998, #3498fb);
+    transition      : .5s;
+}
+
+.btnSubmit:hover {
+    color              : #f8f8f8;
+    background-position: right;
+}
+
+.loginContainer > h1 {
+    font-weight: 900;
+}
+
+.head * {
+    margin-top: 2em;
+    display   : inline;
+    text-align: center;
+}
+
+.head>h2 {
+    display: block;
+}
+
+.loginContainer {
+    height: 50vh;
+    width : 90vw;
+    margin: 0 auto;
+
+    animation: loginDown 2s forwards;
     
 }
 
-.checkLabel{
-    font-size: .5em;
+@media screen and (min-width: 600px) {
+    .loginContainer {
+        width : 70vw;
+    }
 }
 
-.btnSubmit{
-    display: block;
-    border-radius: .3em;
-    font-size: .6em;
-    margin:1em 0; 
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    height: 3.5em;
-    transition: .5s;
-    background-size: 200%;
-    background-image: linear-gradient(120deg, #3498fb, #3b5998, #3498fb);
-    transition: .5s;
+@media screen and (min-width: 920px) {
+    .loginContainer {
+        width : 40vw;
+    }
 }
 
-.btnSubmit:hover{
+.logo {
+    display        : flex;
+    justify-content: center;
+    align-content  : center;
+    height         : 10vh;
+}
+
+.loginTemplate {
+    grid-gap           : 10px;
+    background-color   : white;
+    padding            : 2em;
+}
+
+.emailDiv {
+    grid-area: email;
+}
+
+.emailDiv h3 {
+    color: grey;
+}
+
+.greyBorder {
+    border     : 1px solid #c9ccd1;
+    padding    : 10px;
+    display    : flex;
+    align-items: center
+}
+
+.greyBorder>input {
+    border : none;
+    flex   : auto;
+    padding: 5px;
+    margin : 5px;
+}
+
+.passwordDiv {
+    grid-area: password;
+}
+
+.greyBorder>img:last-child {
+    float : right;
+    width : 20px;
+    height: 15px;
+}
+
+.greyBorder>button {
+    background-color: transparent;
+    border          : none;
+}
+
+.greyBorder>img:first-child {
+    float : left;
+    width : 20px;
+    height: 20px;
+}
+
+.submit {
+    padding   : 20px;
+    text-align: center;
+}
+
+.accountHelper {
+    grid-area: helper;
+    padding   : 20px;
+}
+
+.loginTemplate label {
+    font-family: arial;
+    font-weight: 900;
+    color: grey;
+}
+
+.loginTemplate h3 {
+    font-weight: 300;
+    font-size  : 14px;
+}
+
+.submit button {
+    cursor          : pointer;
+    transition      : .5s;
+    background-size : 200%;
+    background-color:  #ff4100;
+    transition      : .5s;
+    color           : white;
+    border-style    : none;
+    display         : inline-block;
+    width           : 80%;
+    font-size       : 1.2em;
+    margin          : 4px 4px 4px 4px;
+    padding         : 12px 10px;
+    border-radius   : 20px;
+    font-weight     : bold;
+}
+
+.submit button:hover{
     color: #f8f8f8;
     background-position: right;
 }
 
-.btnLoad{
-    height: 4.5em;
+
+.accountHelper a {
+    display    : inline;
+    color      : blue;
+    font-size  : 18px;
+    font-weight: bold;
 }
 
-.linkTo{
-    margin-top: 2em;
-    text-align: center;
-    font-size: .5em;
+.accountHelper>a:last-child {
+    float: right;
 }
 
-.linkTo a{
-    color:#3b5998;
-    text-decoration: none;
+
+.accountHelper>a:first-child {
+    float: left;
 }
 
 /*---------------------*/
 /*----- Animations ----*/
 /*---------------------*/
-.textPulse{
-    animation-name: animationPulse;
-    -webkit-animation-name: animationPulse;	
+.textPulse {
+    animation-name        : animationPulse;
+    -webkit-animation-name: animationPulse;
 
-    animation-duration: 5s;	
+    animation-duration        : 5s;
     -webkit-animation-duration: 5s;
 
-    animation-iteration-count: infinite;
+    animation-iteration-count        : infinite;
     -webkit-animation-iteration-count: infinite;
 }
 
-@keyframes login-Down{
-    0%{
+@keyframes loginDown {
+    0% {
         transform: translateY(3000px)
     }
-    80%{
+
+    80% {
         transform: translateY(-7px)
     }
-    100%{
+
+    100% {
         transform: translateY(0px)
     }
-}   
-    
+}
+
 @keyframes animationPulse {
-	0% {
-		transform: scale(0.9);
-		opacity: 0.7;		
-	}
-	50% {
-		transform: scale(1);
-		opacity: 1;	
-	}	
-	100% {
-		transform: scale(0.9);
-		opacity: 0.7;	
-	}			
+    0% {
+        transform: scale(0.9);
+        opacity  : 0.7;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity  : 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity  : 0.7;
+    }
 }
 
 @-webkit-keyframes animationPulse {
-	0% {
-		-webkit-transform: scale(0.9);
-		opacity: 0.7;		
-	}
-	50% {
-		-webkit-transform: scale(1);
-		opacity: 1;	
-	}	
-	100% {
-		-webkit-transform: scale(0.9);
-		opacity: 0.7;	
-	}			
-}
-  
+    0% {
+        -webkit-transform: scale(0.9);
+        opacity          : 0.7;
+    }
 
+    50% {
+        -webkit-transform: scale(1);
+        opacity          : 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        opacity          : 0.7;
+    }
+}

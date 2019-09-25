@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, Heading, Grid, Text } from 'grommet'
 import DatePicker from './DatePicker';
+import INFO from '../Assets/dashboard/info.png'
+
 import Chart from './Chart';
 const SearchWrapper = ({
     setFrom, setTo, from, to, email,
@@ -9,12 +11,17 @@ const SearchWrapper = ({
 }) => {
 
     return (
-        <Box style={{ "height": "100vh" }} fill>
-            <Box align="center" justify="start" pad="xsmall" animation="zoomIn" fill='horizontal' gap="xsmall">
-                <Chart email={email} from={from} to={to} pad='small' />
-                <Heading textAlign="start" level="3" color="brand">
-                    BÚSQUEDAS
+        <Box align="center" justify="start" pad="small" animation="zoomIn" fill="horizontal" gap="xsmall" >
+            <Box  justify="start" pad="xsmall" animation="zoomIn" fill='horizontal' gap="xsmall">
+                <Heading textAlign="start" level="4" color="slategrey">
+                    Searches
                 </Heading>
+                <Text level="6" color='slategray'>
+                <img src={INFO} alt="info" srcset="" height='20px'/>    Searches are the use of the
+                API you have made. Every keyword that is made in the search is
+                counted
+                </Text>
+                <Chart email={email} from={from} to={to} />
                 <Grid columns={["small", "auto", "small"]}>
                     <DatePicker
                         name={'Desde'}

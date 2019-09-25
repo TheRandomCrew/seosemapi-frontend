@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { LineChart, LineSeries, PointSeries } from 'reaviz';
+import {default as ChartView} from '../Chart/Chart';
 
 import getDatesArray from './getDatesArray';
-import { Box, Text } from 'grommet';
 import { useFetch } from '../../data/util/hooks';
 
 const Chart = ({ email, from, to }) => {
@@ -38,18 +37,12 @@ const Chart = ({ email, from, to }) => {
     }, [email]);
     
     return (
-        <Box align="center" justify="center" pad="small" fill="horizontal" background={{ "color": "light-1" }} round="xsmall" elevation="xsmall">
-                {loading && 'Loading...'}
-                <LineChart
+        <>
+         {loading && 'Loading...'}
+                <ChartView
                     data={tableData}
-                    height={200}
-                    style={{zIndex:0}}
-                    series={<LineSeries interpolation={'smooth'} colorScheme={['#418AD7']} symbols={<PointSeries show={true} />} />}
-                />
-                <Text weight="bold">
-                    Búsquedas Mensuales:
-                </Text>
-        </Box>
+                />       
+        </>
     )
 };
 

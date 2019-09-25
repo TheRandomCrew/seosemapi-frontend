@@ -46,7 +46,7 @@ const Errors = ({
                         "header": "Fecha de Consulta",
                          "property": "error_time",
                           "primary": true, "sortable": true,
-                          render: datum => <h4>{new Date(datum.error_time).toLocaleDateString()}</h4>
+                          render: datum => <h4>{datum.error_time}</h4>
                      }, 
                     { 
                         "header": "Tipo de Error", 

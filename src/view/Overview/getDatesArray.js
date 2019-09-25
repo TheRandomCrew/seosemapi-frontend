@@ -30,12 +30,12 @@ const getDateArray = function (start, end) {
 const getDatesArray = (tableData)=>{
     tableData.sort(date_sort_asc);
     let correctDate = tableData.map(item => {
-        // const date = item.date
-        //     .split(' ')[0]
-        //     .split('-')
-        //     .reverse()
-        //     .join('-');
-        item.date = new Date(item.date).toLocaleDateString();
+        const date = item.date
+            .split(' ')[0]
+            .split('-')
+            .reverse()
+            .join('-');
+        item.date = new Date(date).toLocaleDateString();
         return item;
     });
     let filtered = {};

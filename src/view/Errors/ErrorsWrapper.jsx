@@ -10,7 +10,7 @@ const ErrorsWrapper = ({
 }) => {
 
     return (
-        <Box style={{ "height": "100vh" }} fill>
+        <Box align="center" justify="start" pad="small" animation="zoomIn" fill="horizontal" gap="xsmall" >
                 <Chart email={email} from={from} to={to} />
             <Box align="center" justify="start" pad="xsmall" animation="zoomIn" fill='horizontal' gap="xsmall">
                 <Heading textAlign="start" level="3" color="brand">

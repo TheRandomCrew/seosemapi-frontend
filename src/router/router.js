@@ -4,11 +4,11 @@ import { createBrowserHistory } from 'history';
 import GlobalStore from '../data/store/globalStore';
 
 /** Import logic components */
-import { Dashboard, LogIn, SignUp,Forgot } from '../data'
+import { Dashboard, LogIn, SignUp,Forgot, Home } from '../data'
 import PrivateRoute from './PrivateRoute';
 
 /** Import view components */
-import { Home, Page404 } from '../view';
+import { Page404, Store, Plan } from '../view';
 
 /** @history : Maintains browsing history */
 export const history = createBrowserHistory()
@@ -19,10 +19,12 @@ function Routes() {
     <Router history={history}>
       <GlobalStore>
         <Switch>
-          <Route exact={true} path={'/'} render={Home} />
+          <Route exact={true} path={'/'} component={Home} />
           <Route path={'/recuperar'} component={Forgot} />
+          <Route path={'/plan/:plan'} component={Plan} />
           <Route path={'/inscribete'} component={SignUp} />
           <Route path={'/entra'} component={LogIn} />
+          <Route path={'/tienda'} component={Store} />
           <PrivateRoute path={'/dashboard'} component={Dashboard} />
           <PrivateRoute path={'/dashboard/:userId'} component={Dashboard} />
           <Route path='*' component={Page404} />
@@ -34,8 +36,8 @@ function Routes() {
 
 export const links = [
   { label: "Dashboard API", path: '/inicio' }, 
-  { label: "Buscar", path: '/busquedas' },
-  { label: "Errores", path: '/errores' }
+  { label: "Searches", path: '/busquedas' },
+  { label: "Errors", path: '/errores' }
 ];
 
 export default Routes

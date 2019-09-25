@@ -7,3 +7,4 @@ export { default as Forgot } from './logic/Forgot';
 export { default as Profile } from './logic/Profile';
 export { default as Overview } from './logic/Overview';
 export { default as useTimelySearches } from './logic/useTimelySearches';
+export {default as Home } from './logic/Home';

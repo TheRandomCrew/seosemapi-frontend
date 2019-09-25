@@ -28,7 +28,8 @@ const LogIn = () => {
     React.useLayoutEffect(() => {
         /** Check if the user has already logged or if there was an error */
         if (data.length > 0 || data[1] === 200) {
-            tokenService.set({ email:localEmail, apikey: data[0].api_key })
+            console.log(data[0])
+            tokenService.set({ email:localEmail, apikey: data[0].api_key, plan: data[0].plan })
             setStart(false);
             history.replace(`/dashboard/${encodeURIComponent(localEmail.split('@')[0])}`)
         } else {

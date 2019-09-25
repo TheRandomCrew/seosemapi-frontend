@@ -11,7 +11,7 @@ const modifier = tomorrow.getDate();
 tomorrow.setDate(modifier);
 
 /** Hook Component */
-const Overview = ({ email, apikey }) => {
+const Overview = ({ email, apikey, plan }) => {
     /** Hook State */
     const [tableData, setTableData] = React.useState([{date: new Date().toLocaleDateString(), searches: 0}])
     
@@ -48,6 +48,7 @@ const Overview = ({ email, apikey }) => {
             email={email}
             tableData={tableData}
             loading={loading}
+            plan={plan}
         />
     )
 }

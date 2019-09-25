@@ -5,7 +5,7 @@ import getDatesArray from './getDatesArray';
 import TimelySearches from './TimelySearches';
 
 const Overview = ({
-    email, loading, tableData=[{date: new Date(), searches: 0}]
+    email, loading, tableData=[{date: new Date(), searches: 0}], plan
 }) => {
     const [chartData, setChartData] = React.useState([{key: new Date(), id: 1, data: 0}])
 
@@ -16,14 +16,17 @@ const Overview = ({
         }
     }, [tableData])
 
+    console.log(plan)
+
     return (
         <OverviewWrapper
             PlanUse={<UtilizationCard data={{ name: 'Plan Developer', value: 250000, used: true, usedValue: 23123, available: true, availableValue: 250000 - 23123, percent: (23123 / 250000) * 100 }} />}
             email={email}
-            CheckMonthly={<TimelySearches email={email} isMonthly />}
+            CheckMonthly={<TimelySearches email={email} isMonthly plan={plan}/>}
             CheckDayly={<TimelySearches email={email} />}
             chartsData={chartData}
             loading={loading}
+            plan={plan}
         />
     )
 }
